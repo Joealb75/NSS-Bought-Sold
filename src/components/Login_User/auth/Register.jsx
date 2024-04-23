@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import { createUser, getUserByEmail } from ""
+import { getUserByEmail } from "../../../services/userService.js"
 
 export const Register = (props) => {
   const [customer, setCustomer] = useState({
@@ -15,7 +15,7 @@ export const Register = (props) => {
     createUser(customer).then((createdUser) => {
       if (createdUser.hasOwnProperty("id")) {
         localStorage.setItem(
-          "honey_user",
+          "B&S_User",
           JSON.stringify({
             id: createdUser.id,
             staff: createdUser.isStaff,
@@ -49,7 +49,7 @@ export const Register = (props) => {
   return (
     <main style={{ textAlign: "center" }}>
       <form className="form-login" onSubmit={handleRegister}>
-        <h1>Honey Rae Repairs</h1>
+        <h1>Bought & Sold</h1>
         <h2>Please Register</h2>
         <fieldset>
           <div className="form-group">

@@ -1,31 +1,28 @@
-import './App.css'
+import "./App.css";
 import { Route, Routes, Outlet } from "react-router-dom";
-import { NavBar } from './components/Nav/navBar.jsx';
-import { WriterProfile } from './components/WriterProfile/WP_Profile.jsx';
+import { ApplicationViews } from "./components/ApplicationViews.jsx";
+import { Authorized } from "./components/Login_User/auth/Authorized.jsx";
+import { Login } from "./components/Login_User/auth/Login.jsx";
+import { Register } from "./components/Login_User/auth/Register.jsx";
 
 export const App = () => {
   return (
     <>
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-      <Route
-          path="/"
+        <Route
+          path="*"
           element={
-            <>
-              <NavBar />
-              <Outlet />{" "}
-              {/* Whenever we match any of the paths that are children of "/" outlet will render that element  
-                             if <Outlet /> was above <NavBar /> then the NavBar would render at the bottom of all pages      */}
-            </>
+            // check if the user is authorized first
+            <Authorized>
+              {/*  if they are authorized the application views is the child component of Authorized and will render in only if "Honey_User"
+           is present in local storage  */}
+              <ApplicationViews />
+            </Authorized>
           }
-        >
-          <Route path="profile">
-            <Route index path=":userId" element={<WriterProfile />}/>
-          </Route>
-
-
-      </Route>
-        
+        />
       </Routes>
     </>
   );

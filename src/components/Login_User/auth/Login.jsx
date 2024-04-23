@@ -1,11 +1,11 @@
-import React, { useState } from "react"
+import { React, useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
-import { getUserByEmail } from "../../services/userService"
+import { getUserByEmail } from "../../../services/userService"
 
 export const Login = () => {
-  const [email, set] = useState("hpassfield7@netvibes.com")
+  const [email, set] = useState("Joe@BoughtAndSold.com")
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
@@ -15,10 +15,10 @@ export const Login = () => {
       if (foundUsers.length === 1) {
         const user = foundUsers[0]
         localStorage.setItem(
-          "honey_user",
+          "B&S_User",
           JSON.stringify({
             id: user.id,
-            isStaff: user.isStaff,
+            isWriter: user.isWriter,
           })
         )
 
@@ -33,7 +33,7 @@ export const Login = () => {
     <main className="container-login">
       <section>
         <form className="form-login" onSubmit={handleLogin}>
-          <h1>Honey Rae Repairs</h1>
+          <h1>Bought & Sold</h1>
           <h2>Please sign in</h2>
           <fieldset>
             <div className="form-group">

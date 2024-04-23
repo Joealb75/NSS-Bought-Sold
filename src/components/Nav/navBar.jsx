@@ -1,7 +1,9 @@
 import "./NavBar.css"
 import { Link, useNavigate } from "react-router-dom"
+
+
 export const NavBar = () =>{
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     return <ul className="navbar">
         <li className="navbar-item">
             <Link to="/">Profile</Link>
@@ -14,13 +16,13 @@ export const NavBar = () =>{
         </li>
         
 
-        {/* {localStorage.getItem("honey_user") ? (
+        { localStorage.getItem("B&S_User") ? (
   <li className="navbar-item navbar-logout">
     <Link
       className="navbar-link"
       to=""
       onClick={() => {
-        localStorage.removeItem("honey_user")
+        localStorage.removeItem("B&S_User")
         navigate("/", { replace: true })
       }}
     >
@@ -29,6 +31,6 @@ export const NavBar = () =>{
   </li>
 ) : (
   ""
-)} */}
+)} 
     </ul>
 }
