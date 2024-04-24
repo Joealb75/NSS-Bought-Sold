@@ -1,18 +1,22 @@
 import "./NavBar.css"
 import { Link, useNavigate } from "react-router-dom"
 
-
 export const NavBar = () =>{
+
+  
     const navigate = useNavigate()
     return <ul className="navbar">
         <li className="navbar-item">
-            <Link to="/">Profile</Link>
+            <Link to={`/profile`}>Profile</Link>
         </li>
         <li className="navbar-item">
             <Link to="/about">About</Link>
         </li>
         <li className="navbar-item">
             <Link to="/myarticles">My Articles</Link>
+        </li>
+        <li className="navbar-item">
+            <Link to="/writers">Writers</Link>
         </li>
         
 

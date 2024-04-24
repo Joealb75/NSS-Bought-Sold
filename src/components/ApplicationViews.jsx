@@ -1,17 +1,21 @@
 import { Route, Routes, Outlet } from "react-router-dom";
 import { NavBar } from './Nav/navBar.jsx';
-import { WriterProfile } from './WriterProfile/WP_Profile.jsx';
+import { WriterProfileHeader } from './WriterProfile/WP_ProfileHeader.jsx';
 import { useEffect, useState } from "react";
+import { Welcome } from "./welcome/welcome.jsx";
+import { WritersList } from "./WriterProfile/writersList.jsx";
 
 export const ApplicationViews = () => {
 
-  const [currentUser, setCurrrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
 
-  useEffect(()=> {
-    const localHoneyUser = localStorage.getItem("B&S_User")
-    const honeyUserObject = JSON.parse(localHoneyUser)
-    setCurrrentUser(honeyUserObject)
-  },[])
+  
+
+  useEffect(() => {
+    const userId = JSON.parse(localStorage.getItem("B&S_User"))?.id;
+    setCurrentUser(userId);
+  }, []);
+
   return (
     <>
       <Routes>
@@ -26,11 +30,17 @@ export const ApplicationViews = () => {
             </>
           }
         >
-          <Route path="/profile">
-            <Route index path=":userId" element={<WriterProfile />} />
-          </Route>
+            <Route index element={<Welcome />} />
+            <Route path="writers">
+              <Route index element={<WritersList />} />
+              <Route path=":id" element={<WriterProfileHeader />} />
+            </Route>
         </Route>
       </Routes>
     </>
   );
 };
+//path=":userId" 
+
+// I need to get the userId from the database 
+

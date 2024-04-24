@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes, Outlet } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { ApplicationViews } from "./components/ApplicationViews.jsx";
 import { Authorized } from "./components/Login_User/auth/Authorized.jsx";
 import { Login } from "./components/Login_User/auth/Login.jsx";

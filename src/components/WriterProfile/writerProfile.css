@@ -1,0 +1,17 @@
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+.profile-name {
+    padding-left: 10px;
+    text-align: left;
+    
+}
+
+.profile-job {
+ 
+}
