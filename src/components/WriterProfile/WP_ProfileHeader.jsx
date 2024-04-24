@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getWriterInfoByUserId } from "../../services/WriterService.js";
 
 export const WriterProfileHeader = () => {
-  const [user, setUsers] = useState({});
+  const [user, setUsers] = useState([]);
   const { userId } = useParams();
 
   useEffect(() => {

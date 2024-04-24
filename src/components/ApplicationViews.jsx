@@ -24,6 +24,7 @@ export const ApplicationViews = () => {
           element={
             <>
               <NavBar />
+
               <Outlet />{" "}
               {/* Whenever we match any of the paths that are children of "/" outlet will render that element  
                        if <Outlet /> was above <NavBar /> then the NavBar would render at the bottom of all pages      */}
@@ -33,7 +34,7 @@ export const ApplicationViews = () => {
             <Route index element={<Welcome />} />
             <Route path="writers">
               <Route index element={<WritersList />} />
-              <Route path=":id" element={<WriterProfileHeader />} />
+              <Route path=":userId" element={<WriterProfileHeader />} />
             </Route>
         </Route>
       </Routes>
