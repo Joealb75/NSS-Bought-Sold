@@ -5,15 +5,18 @@ import { getWriterInfoByUserId } from "../../services/WriterService.js";
 
 export const WriterProfileHeader = ({user}) => {
   const [writer, setWriters] = useState({});
+  if (!user) return null;
   
-  useEffect(() => {
-    console.log(user)
+  useEffect(() => { // the code will only run if there is a valid user prop 
+
+    if (!user) return;
+
        getWriterInfoByUserId(user.id).then((data) => {
          let writerObj = data[0];
          setWriters(writerObj);
        });
-   }, [user.id]);
-
+   }, [user.id, user]);
+   
   return (
     <section className="profile">
       <div className="profile-img">
