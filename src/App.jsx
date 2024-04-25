@@ -1,3 +1,4 @@
+// FILE PATH: ./NSS-Bought-Sold/src/App.jsx
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { ApplicationViews } from "./components/ApplicationViews.jsx";

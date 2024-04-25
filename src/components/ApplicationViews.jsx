@@ -5,6 +5,7 @@ import { WriterProfileHeader } from './WriterProfile/WP_ProfileHeader.jsx';
 import { useEffect, useState } from "react";
 import { Welcome } from "./welcome/welcome.jsx";
 import { WritersList } from "./WriterProfile/writersList.jsx";
+import { WriterProfile } from "./WriterProfile/WP_Profile.jsx";
 
 export const ApplicationViews = () => {
 
@@ -34,6 +35,7 @@ export const ApplicationViews = () => {
             <Route path="writers" element={<WritersList />}/>
             <Route path="writers/:userId" element={<WriterProfileHeader />} />
             
+            <Route path="profile/:userId" element={<WriterProfile />} />
         </Route>
       </Routes>
     </>
