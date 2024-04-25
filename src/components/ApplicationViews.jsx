@@ -1,3 +1,4 @@
+// FILE PATH: ./NSS-Bought-Sold/src/components/ApplicationViews.jsx
 import { Route, Routes, Outlet } from "react-router-dom";
 import { NavBar } from './Nav/navBar.jsx';
 import { WriterProfileHeader } from './WriterProfile/WP_ProfileHeader.jsx';
@@ -8,8 +9,6 @@ import { WritersList } from "./WriterProfile/writersList.jsx";
 export const ApplicationViews = () => {
 
   const [currentUser, setCurrentUser] = useState({})
-
-  
 
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("B&S_User"))?.id;
@@ -40,7 +39,4 @@ export const ApplicationViews = () => {
     </>
   );
 };
-//path=":userId" 
-
-// I need to get the userId from the database 
 

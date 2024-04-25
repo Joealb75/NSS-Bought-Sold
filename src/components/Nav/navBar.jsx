@@ -6,6 +6,7 @@ export const NavBar = () =>{
   
     const navigate = useNavigate()
     return <ul className="navbar">
+        <h3>Bought & Sold</h3>
         <li className="navbar-item">
             <Link to={`/profile`}>Profile</Link>
         </li>

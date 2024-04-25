@@ -1,3 +1,4 @@
+// FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writersList.jsx
 import { useEffect, useState } from "react";
 import { getWriterUsers } from "../../services/userService.js";
 import { Link } from "react-router-dom";

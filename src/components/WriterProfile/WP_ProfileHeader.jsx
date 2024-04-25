@@ -1,25 +1,18 @@
-// 1. Get & Display Writer profile picture, name, position and company
+// FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/WP_ProfileHeader.jsx
 import "./writerProfile.css"
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { getWriterInfoByUserId } from "../../services/WriterService.js";
 
 export const WriterProfileHeader = ({user}) => {
   const [writer, setWriters] = useState({});
-  // const { userId } = useParams();
-
+  
   useEffect(() => {
-  //   if (userId){
+    console.log(user)
        getWriterInfoByUserId(user.id).then((data) => {
          let writerObj = data[0];
-  //       console.log(writerObj);
          setWriters(writerObj);
        });
-     // }
    }, [user.id]);
-  
-  // destructure writers from user with the default value of an empty array 
-  // const { writers = [] } = user;
 
   return (
     <section className="profile">
@@ -39,4 +32,3 @@ export const WriterProfileHeader = ({user}) => {
 };
 
 
-// When i click on profile i need it to take me to the users profile that is currently logged in 
