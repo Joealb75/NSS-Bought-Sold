@@ -5,6 +5,6 @@ export const getAllWriters = () => {
 }
 
 export const getWriterInfoByUserId = (userId) => {
-    return fetch(`http://localhost:8088/users?userId=${userId}&_embed=writers`).then((res) => res.json())
+    return fetch(`http://localhost:8088/writers?userId=${userId}&_expand=user`).then((res) => res.json())
 }
 //${userId}

@@ -32,10 +32,9 @@ export const ApplicationViews = () => {
           }
         >
             <Route index element={<Welcome />} />
-            <Route path="writers">
-              <Route index element={<WritersList />} />
-              <Route path=":userId" element={<WriterProfileHeader />} />
-            </Route>
+            <Route path="writers" element={<WritersList />}/>
+            <Route path="writers/:userId" element={<WriterProfileHeader />} />
+            
         </Route>
       </Routes>
     </>

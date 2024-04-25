@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { WriterProfileHeader } from "./WP_ProfileHeader.jsx";
 
 export const WritersList = () => {
-    const [writers, setWriters] = useState([{}])
+    const [writers, setWriters] = useState([])
   
     useEffect(()=>{
       getWriterUsers().then((writerArray)=>{
@@ -17,7 +17,7 @@ export const WritersList = () => {
         {writers.map((writersObj) => {
             return(
                 <Link key={writersObj.id} to={`/writers/${writersObj.id}`}>
-                    <WriterProfileHeader writer={writersObj} />
+                    <WriterProfileHeader user={writersObj} />
                 </Link>
             )
         })}
