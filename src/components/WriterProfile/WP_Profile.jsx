@@ -13,9 +13,12 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/WP_Profile.jsx
 import { useEffect, useState } from "react";
 import { getWriterInfoByUserId } from "../../services/WriterService.js";
+import { Link, useParams } from "react-router-dom";
+import { CreateNewArticle } from "../Create/NewArticle.jsx";
 
 export const WriterProfile = ({currentUser}) => {
 
+    useParams()
     const [writer, setWriter] = useState(null)
 
     useEffect(()=>{
@@ -28,6 +31,7 @@ export const WriterProfile = ({currentUser}) => {
 
 
     return (
+    <>
         <section className="profile">
           <div className="profile-img">
             <img src={writer?.user?.userImg} />
@@ -37,10 +41,26 @@ export const WriterProfile = ({currentUser}) => {
     
             {/* Checks to see if the writers array is empty - if its not empty render the following */}
           
-            <h4 className="profile-job">{writer?.writerProfession}  {writer?.writerCompany}</h4>
-          
+            <h4 className="profile-job">{writer?.writerProfession} @ {writer?.writerCompany}</h4>
+        
           </div>
         </section>
-      );
 
+        <section className="profile">
+            <div className="profile-featured">Featured Article Space</div>
+        </section>
+        
+        <section className="profile">
+            <div className="profile-latest"> latest Article Section </div>
+        </section>
+
+        <section>
+            <Link to={`/profile/${currentUser.id}/new-article`}>
+                <CreateNewArticle currentUser={currentUser} />
+            <button className="profile-newArticle">Create New Article </button>
+            </Link>
+        </section>
+
+    </>
+      );
 };
