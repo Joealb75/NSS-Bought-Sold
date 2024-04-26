@@ -1,14 +1,17 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Create/NewArticle.jsx
 
+import { useNavigate } from "react-router-dom"
+import { SubmitNewArticle } from "../../services/ArticleService.js"
 import { getAllCategories } from "../../services/CategoriesService.js"
 import { useEffect, useState } from "react"
 
 export const CreateNewArticle = ({currentUser}) =>{
+    const navigate = useNavigate();
 
     const [categories, setCategories] = useState([])
     const [selectedCategory, setSelectedCategory ] = useState({})
     const [articleTitle, setArticleTitle] = useState("")
-    const [articleContent, setArticleContent] = useState("")
+    const [newArticleContent, setNewArticleContent] = useState("")
 
     useEffect(() =>{
         getAllCategories().then((data)=>{
@@ -18,12 +21,24 @@ export const CreateNewArticle = ({currentUser}) =>{
     }, [])
 
     const handleSubmitNewArticle = async (event) =>{
-        const newArticle = {}
-        event.preventDefault() // prevents the reload of the page 
-        const title = articleTitle
-        const categoryId = selectedCategory.id
-        const content = articleContent
+        event.preventDefault() // prevents the reload of the page
+        const newArticle = {
+            userId : currentUser.id,
+            title : articleTitle,
+            categoryId : selectedCategory.id,
+            articleContent : newArticleContent,
+            isFeaturedArticle: false,
+            image : "",
+            dateUploaded: new Date(), 
+        }
+        console.log(newArticle)
+        SubmitNewArticle(newArticle).then(()=>{
+            navigate(`/myarticles`)
+        })
+        
     }
+
+    // after user clicks "'Submit New Article " take them to "MyArticles"
 
     return(
     <>
@@ -55,8 +70,8 @@ export const CreateNewArticle = ({currentUser}) =>{
             <input 
             placeholder="Start writing your new article" 
             type="text" 
-            value={articleContent}
-            onChange={(event)=>{setArticleContent(event.target.value)}}
+            value={newArticleContent}
+            onChange={(event)=>{setNewArticleContent(event.target.value)}}
             />
         </div>
         <div>
