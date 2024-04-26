@@ -1,5 +1,18 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Edit/EditArticle.jsx
 
-export const editArticle = () =>{
-    
+export const editArticle = ({currentUser , articleObj}) =>{
+
+    console.log(currentUser)
+    console.log(articleObj)
+
+
+
+    return(
+        <>
+            <div> test
+                <input
+                placeholder={articleObj.title} />
+            </div>
+        </>
+    )
 }

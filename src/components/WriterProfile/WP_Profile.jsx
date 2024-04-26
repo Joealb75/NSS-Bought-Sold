@@ -14,7 +14,7 @@ export const WriterProfile = ({ currentUser }) => {
       const WriterObj = data[0];
       setWriter(WriterObj);
     });
-  }, [currentUser.id, currentUser]);
+  }, [currentUser.id]);
 
   return (
     <>
