@@ -33,7 +33,7 @@ export const CreateNewArticle = ({currentUser}) =>{
         }
         console.log(newArticle)
         SubmitNewArticle(newArticle).then(()=>{
-            navigate(`/myarticles`)
+            navigate(`/my-articles/${currentUser.id}`)
         })
     }
 
