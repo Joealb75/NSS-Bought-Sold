@@ -1,3 +1,4 @@
+// FILE PATH: /.NSS-Bought-Sold/src/components/Nav/navBar.jsx
 import "./NavBar.css"
 import { Link, useNavigate } from "react-router-dom"
 

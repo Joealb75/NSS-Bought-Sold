@@ -1,23 +1,17 @@
-
-// map over select categories from the database 
-/*
-
- <select
-            value={all of the options}
-            onChange={ useState -> set selected category}
-            aria-label="Select Category"
-            >Select Category</select>
-
-*/
 // FILE PATH: ./NSS-Bought-Sold/src/components/Create/NewArticle.jsx
 
+import { useNavigate } from "react-router-dom"
+import { SubmitNewArticle } from "../../services/ArticleService.js"
 import { getAllCategories } from "../../services/CategoriesService.js"
 import { useEffect, useState } from "react"
 
 export const CreateNewArticle = ({currentUser}) =>{
+    const navigate = useNavigate();
 
     const [categories, setCategories] = useState([])
     const [selectedCategory, setSelectedCategory ] = useState({})
+    const [articleTitle, setArticleTitle] = useState("")
+    const [newArticleContent, setNewArticleContent] = useState("")
 
     useEffect(() =>{
         getAllCategories().then((data)=>{
@@ -26,32 +20,64 @@ export const CreateNewArticle = ({currentUser}) =>{
         })
     }, [])
 
+    const handleSubmitNewArticle = async (event) =>{
+        event.preventDefault() // prevents the reload of the page
+        const newArticle = {
+            userId : currentUser.id,
+            title : articleTitle,
+            categoryId : selectedCategory.id,
+            articleContent : newArticleContent,
+            isFeaturedArticle: false,
+            image : "",
+            dateUploaded: new Date(), 
+        }
+        console.log(newArticle)
+        SubmitNewArticle(newArticle).then(()=>{
+            navigate(`/myarticles`)
+        })
+        
+    }
+
+    // after user clicks "'Submit New Article " take them to "MyArticles"
+
     return(
     <>
         <div>
-            <input placeholder="Article Title" type="text"></input>
+
+            <input 
+            placeholder="Article Title" 
+            type="text"
+            value={articleTitle}
+            onChange={(event) => setArticleTitle(event.target.value)}
+            />
+
             <select
             className="profile-categories"
             value={selectedCategory}
-            onChange={choice => setSelectedCategory(choice.target.value)}
+            onChange={event => setSelectedCategory(event.target.value)}
             aria-label="Select Article Category"
             >
+
             <option value="">Select Article Category</option>
-            {categories.map((category)=>
+            {categories.map((category)=> (
                 <option key={category.id} value={category.id}>{category.name}</option>
-            )}
+            ))}
             </select>
-            {console.log(JSON.stringify(selectedCategory))}
-        </div>
-        <div>
-            <input placeholder="Start writing your new article" type="text" />
-        </div>
-        <div>
-            <button>Submit New Article</button>
+            
         </div>
 
-        
-        
+        <div>
+            <input 
+            placeholder="Start writing your new article" 
+            type="text" 
+            value={newArticleContent}
+            onChange={(event)=>{setNewArticleContent(event.target.value)}}
+            />
+        </div>
+        <div>
+            <button onClick={handleSubmitNewArticle}>Submit New Article</button>
+        </div>
+
     </>
     )
 }
