@@ -18,8 +18,6 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
 
     },[currentUser.id])
 
-    
-
     return (
         <section className="profile">
             {allUserArticles.map((articleObj)=>{

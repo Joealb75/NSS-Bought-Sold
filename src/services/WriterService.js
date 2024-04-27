@@ -7,3 +7,11 @@ export const getAllWriters = () => {
 export const getWriterInfoByUserId = (userId) => {
     return fetch(`http://localhost:8088/writers?userId=${userId}&_expand=user`).then((res) => res.json())
 }
+
+export const SubmitWriterProfile = (editProfile, userId) =>{
+    return fetch(`http://localhost:8088/writers?userId=${userId}&_expand=user`,{
+        method: "PUT", 
+        headers:{"Content-type": "application/json"},
+        body: JSON.stringify(editProfile),
+    }
+)}

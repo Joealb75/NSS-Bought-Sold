@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { getWriterInfoByUserId } from "../../services/WriterService.js"
+import { Link } from "react-router-dom";
 
 export const WriterProfileAbout = ({currentUser}) => {
 
@@ -21,7 +22,10 @@ export const WriterProfileAbout = ({currentUser}) => {
                 <section className="profile-aboutMe">
                     <div>
                         <h1>About Me</h1> 
-                        <button>Edit Profile</button>
+                        <Link to={`/about/edit-profile/${currentUser.id}`}>
+                            <button>Edit Profile</button>
+                        </Link>
+                        
                     </div>
                     <div>
                         <span>

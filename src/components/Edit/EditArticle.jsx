@@ -63,8 +63,6 @@ export const EditArticle = ({currentUser}) =>{
         })
     }
 
-// onSubmit={handleSaveArticleChanges}
-
     return(
         <>
             <form>
