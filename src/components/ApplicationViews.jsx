@@ -9,6 +9,7 @@ import { WriterProfileMyArticles } from "./WriterProfile/WP_MyArticles.jsx";
 import { WriterProfileAbout } from "./WriterProfile/WP_About.jsx";
 
 
+
 export const ApplicationViews = () => {
 
   
@@ -34,6 +35,7 @@ export const ApplicationViews = () => {
           <Route path={`/profile/${currentUser.id}/new-article`} element={<CreateNewArticle currentUser={currentUser} />} />
           <Route path={`/my-articles/${currentUser.id}`} element={<WriterProfileMyArticles currentUser={currentUser}/>} />
           <Route path={`/about/${currentUser.id}`} element={<WriterProfileAbout currentUser={currentUser}/>} />
+          
           
 
         </Route>

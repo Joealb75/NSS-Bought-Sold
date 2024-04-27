@@ -4,6 +4,7 @@ import { getArticlesByUserId } from "../../services/ArticleService.js"
 import { Link } from "react-router-dom"
 import "./writerProfile.css"
 
+
 export const WriterProfileMyArticles = ( {currentUser} ) => {
     
     const [allUserArticles, setAllUserArticles ] = useState([])
@@ -34,11 +35,11 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
                         </div>
 
                         <div className="myArticles-buttonContainer">
-                            <Link to={`/my-articles/${currentUser.id}/edit-article/${articleObj.id}`}>
+                            <Link to={`/my-articles/${currentUser.id}/edit-article/${articleObj.id}`} >
                                 <button> Edit Article </button>
                             </Link>
                         </div>
-                        
+                    
                     </div>
                 )
             })}
