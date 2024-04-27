@@ -1,5 +1,4 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Create/NewArticle.jsx
-
 import { useNavigate } from "react-router-dom"
 import { SubmitNewArticle } from "../../services/ArticleService.js"
 import { getAllCategories } from "../../services/CategoriesService.js"
@@ -12,6 +11,7 @@ export const CreateNewArticle = ({currentUser}) =>{
     const [selectedCategory, setSelectedCategory ] = useState({})
     const [articleTitle, setArticleTitle] = useState("")
     const [newArticleContent, setNewArticleContent] = useState("")
+    const [articleImage, setArticleImage] = useState(""); // Add a state variable for the image
 
     useEffect(() =>{
         getAllCategories().then((data)=>{
@@ -28,14 +28,13 @@ export const CreateNewArticle = ({currentUser}) =>{
             categoryId : selectedCategory.id,
             articleContent : newArticleContent,
             isFeaturedArticle: false,
-            image : "",
+            image : articleImage,
             dateUploaded: new Date(), 
         }
         console.log(newArticle)
         SubmitNewArticle(newArticle).then(()=>{
-            navigate(`/myarticles`)
+            navigate(`/my-articles/${currentUser.id}`)
         })
-        
     }
 
     // after user clicks "'Submit New Article " take them to "MyArticles"
@@ -75,6 +74,14 @@ export const CreateNewArticle = ({currentUser}) =>{
             />
         </div>
         <div>
+
+            <input
+            placeholder="Insert Image URL"
+            type="text"
+            value={articleImage}
+            onChange={(event)=>{setArticleImage(event.target.value)}}
+
+            />
             <button onClick={handleSubmitNewArticle}>Submit New Article</button>
         </div>
 

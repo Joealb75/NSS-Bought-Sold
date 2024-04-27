@@ -1,17 +1,55 @@
-
+/* FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writerProfile.css */
 .profile {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
 }
 
 .profile-name {
     padding-left: 10px;
     text-align: left;
-    
 }
 
 .profile-job {
  
+}
+
+.myArticles-card {
+    border: solid 1px orange;
+    width: 250px;
+    height: 300px; /* Increased height to make space for the button */
+    overflow: hidden; /* Hide any excess image size */
+    display: flex; /* Add display flex */
+    flex-direction: column; /* Add flex direction column */
+    align-items: center; /* Add align items center */
+}
+
+.myArticles-title{
+    font-size: 8px;
+}
+
+.myArticles-imageContainer{
+    width: 250px; /* Set the width of the container */
+    height: 150px; /* Adjust the height to make space for the button */
+}
+
+.myArticles-imageContainer img{
+    max-width: 100%; /* Set the max width to 100% of the container */
+    max-height: 100%; /* Set the max height to 100% of the container */
+    object-fit: contain; /* Resize the image to fit within the container */
+    vertical-align: middle; /* Vertically align the image */
+}
+
+.myArticles-buttonContainer {
+    margin-top: 20px; /* Add some space between the image and the button */
+    text-align: center; /* Center the button horizontally */
+}
+
+.myArticles-buttonContainer button {
+    padding: 10px; /* Add some padding to the button */
+    background-color: orange; /* Change the button color */
+    color: white; /* Change the button text color */
+    border: none; /* Remove the button border */
+    border-radius: 5px; /* Add a border radius to the button */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
 }

@@ -11,10 +11,10 @@ export const WriterProfile = ({ currentUser }) => {
 
   useEffect(() => { // runs when the prop {currentUser} changes
     getWriterInfoByUserId(currentUser.id).then((data) => {
-      let WriterObj = data[0];
+      const WriterObj = data[0];
       setWriter(WriterObj);
     });
-  }, [currentUser.id, currentUser]);
+  }, [currentUser.id]);
 
   return (
     <>
