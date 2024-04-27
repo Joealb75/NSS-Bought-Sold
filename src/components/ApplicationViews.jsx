@@ -7,6 +7,7 @@ import { WriterProfile } from "./WriterProfile/WP_Profile.jsx";
 import { CreateNewArticle } from "./Create/NewArticle.jsx";
 import { WriterProfileMyArticles } from "./WriterProfile/WP_MyArticles.jsx";
 import { WriterProfileAbout } from "./WriterProfile/WP_About.jsx";
+import { EditArticle } from "./Edit/EditArticle.jsx";
 
 
 
@@ -35,15 +36,18 @@ export const ApplicationViews = () => {
           <Route path={`/profile/${currentUser.id}/new-article`} element={<CreateNewArticle currentUser={currentUser} />} />
           <Route path={`/my-articles/${currentUser.id}`} element={<WriterProfileMyArticles currentUser={currentUser}/>} />
           <Route path={`/about/${currentUser.id}`} element={<WriterProfileAbout currentUser={currentUser}/>} />
+          <Route path={`/my-articles/${currentUser.id}/edit-article/:articleId`} element={<EditArticle currentUser={currentUser}/>} />
+          
           
           
 
         </Route>
       </Routes>
-      {console.log(currentUser)}
     </>
   );
 };
+
+// <Route path={`/my-articles/${currentUser.id}/edit-article/${articleObj.id}`} element={<EditArticle currentUser={currentUser}/>} />
 
 // :userId - pull a PARAMETER 
 // {currentUser} - pass a PROP

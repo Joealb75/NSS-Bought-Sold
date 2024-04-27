@@ -16,3 +16,7 @@ export const SubmitNewArticle = (newArticle) =>{
 export const getArticlesByUserId = (userId) => {
     return fetch(`http://localhost:8088/articles?userId=${userId}&_expand=user`).then((res) => res.json())
 }
+
+export const getArticleById = (articleId) =>{
+    return fetch(`http://localhost:8088/articles/${articleId}`).then((res) => res.json())
+}
