@@ -1,14 +1,14 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Edit/EditArticle.jsx
-
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { getArticleById } from "../../services/ArticleService.js"
+import { useParams, useNavigate } from "react-router-dom"
+import { getArticleById, SubmitEditArticle, deleteArticle } from "../../services/ArticleService.js"
 import { getAllCategories } from "../../services/CategoriesService.js"
-import { SubmitEditArticle } from "../../services/ArticleService.js"
 
-// export const EditArticle = ({articleObj}) =>{
+
 export const EditArticle = ({currentUser}) =>{
     
+    const navigate = useNavigate();
+
     const [article, setArticle] = useState({
         // Need to set initial values for the "value" fields on the form or else they are undefined on initial render 
         title: '',
@@ -18,7 +18,6 @@ export const EditArticle = ({currentUser}) =>{
       });
 
     const [categories, setCategories] = useState([])
-    const [selectedCategory, setSelectedCategory ] = useState({})
     const {articleId} = useParams()
     
 
@@ -48,8 +47,6 @@ export const EditArticle = ({currentUser}) =>{
         )) // The new property has a key equal to the input field's name and a value equal to the new value entered by the user
     }
 
-
-
     const handleSaveArticleChanges = (event) =>{
         event.preventDefault()
         SubmitEditArticle(article, articleId).then((updatedArticle) =>{
@@ -58,11 +55,19 @@ export const EditArticle = ({currentUser}) =>{
         })
     }
 
+    const handleDeleteArticle = (event) =>{
+        event.preventDefault()
+        deleteArticle(articleId).then(() =>{
+            navigate(`/my-articles/${currentUser.id}`)
+            // stretch - navigate to a page that renders for 3sec saying "Article has been deleted, ____" 
+        })
+    }
 
+// onSubmit={handleSaveArticleChanges}
 
     return(
         <>
-            <form onSubmit={handleSaveArticleChanges}>
+            <form>
                 <div>
                     <label>
                         <input
@@ -113,8 +118,9 @@ export const EditArticle = ({currentUser}) =>{
 
                 <div>
                     <button
-                    type="delete" // look into further 
+                    type="delete" 
                     className="editArticle-deleteBtn"
+                    onClick={handleDeleteArticle}
                     >Delete Article</button>
 
 

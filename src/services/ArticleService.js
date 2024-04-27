@@ -29,3 +29,9 @@ export const SubmitEditArticle = (editArticle, articleId) =>{
         body: JSON.stringify(editArticle),
     }
 )}
+
+export const deleteArticle = (articleId) => {
+    return fetch(`http://localhost:8088/articles/${articleId}`, {
+        method: "DELETE",
+    });
+}
