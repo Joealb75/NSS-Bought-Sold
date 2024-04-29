@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/WriterService.js";
-import { getUserById, SubmitUserInfo } from "../../services/userService.js";
+import { getWriterInfoByUserId, SubmitWriterProfile } from "../../services/WriterService.js";
+import { getUserById, SubmitUserInfo } from "./services/userService.js";
 
 
 
@@ -11,9 +11,16 @@ export const EditProfile = ( {currentUser} ) =>{
     const navigate = useNavigate()
 
     const [writerInfo, setWriterInfo] = useState()
+    const [userInfo, setUserInfo] = useState()
 
     
 // ---------------------------------------------------- UseEffects()
+    useEffect(() =>{
+        getUserById(currentUser.id).then((data) =>{
+            const userObj = data[0]
+            setUserInfo(data)
+        })
+    }, [currentUser.id])
     
     useEffect(() => { // runs when the prop {currentUser} changes
         getWriterInfoByUserId(currentUser.id).then((data) => {
@@ -28,16 +35,16 @@ export const EditProfile = ( {currentUser} ) =>{
         setWriterInfo((oldProfile) => (
             { ...oldProfile, [name]: value }
         ))
-    } /// CURRENT STATE BEFORE CHANGES
+    }
 
     const handleSaveProfile = (event) =>{
         const copy = writerInfo // replacing userObj with user ID so it can send to writers
         copy.user = writerInfo.user.id
         event.preventDefault()
-        SubmitWriterInfo(copy, currentUser.id).then((updatedWriterInfo) =>{
-            console.log(writerInfo)
+        SubmitWriterProfile(copy, currentUser.id).then((updatedWriterInfo) =>{
+            console.log(updatedWriterInfo)
         })
-        SubmitUserInfo(writerInfo.user, currentUser.id)
+        SubmitUserInfo(writerInfo.user)
     }
 
 // ---------------------------------------------------- DOM
@@ -127,6 +134,3 @@ export const EditProfile = ( {currentUser} ) =>{
     </>
     )
 }
-
-// Need to set initial values to "|| '' "for the "value" fields on the form or else they are undefined on initial render 
-
