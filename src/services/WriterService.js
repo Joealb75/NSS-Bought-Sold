@@ -8,8 +8,8 @@ export const getWriterInfoByUserId = (userId) => {
     return fetch(`http://localhost:8088/writers?userId=${userId}&_expand=user`).then((res) => res.json())
 }
 
-export const SubmitWriterInfo = (editProfile, writerId) =>{
-    return fetch(`http://localhost:8088/writers/${writerId}`,{
+export const SubmitWriterInfo = (editProfile, userId) =>{
+    return fetch(`http://localhost:8088/writers/${userId}`,{
         method: "PUT", 
         headers:{"Content-type": "application/json"},
         body: JSON.stringify(editProfile),

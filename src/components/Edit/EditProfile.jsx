@@ -31,14 +31,19 @@ export const EditProfile = ( {currentUser} ) =>{
     } /// CURRENT STATE BEFORE CHANGES
 
     const handleSaveProfile = (event) =>{
-        const copy = writerInfo // replacing userObj with user ID so it can send to writers
-        copy.user = writerInfo.user.id
         event.preventDefault()
-        SubmitWriterInfo(copy, currentUser.id).then((updatedWriterInfo) =>{
-            console.log(writerInfo)
+        if (!writerInfo) return; 
+        const { user, ...writerInfoData } = writerInfo; 
+        const writerInfoWithoutUser = { ...writerInfoData, userId: writerInfo.user.id }; 
+        SubmitWriterInfo(writerInfoWithoutUser, currentUser.id).then((updatedWriterInfo) =>{
+            console.log("writer info with out user", writerInfoWithoutUser)
         })
-        SubmitUserInfo(writerInfo.user, currentUser.id)
+        SubmitUserInfo(user, currentUser.id) 
+        console.log("user Info:" ,user)
     }
+        // only sending userId at this moment
+        // ASK How to get user{object} to send with SubmitUserInfo
+
 
 // ---------------------------------------------------- DOM
     return (
