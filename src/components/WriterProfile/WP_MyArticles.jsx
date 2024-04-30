@@ -1,6 +1,6 @@
 // FILE PATH ./NSS-Bought-Sold/src/components/WriterProfile/WP_MyArticles.jsx
 import { useEffect, useState } from "react"
-import { getArticlesByUserId } from "../../services/ArticleService.js"
+import { getArticlesByUserId } from "../../services/articleService.js"
 import { Link } from "react-router-dom"
 import "./writerProfile.css"
 

@@ -1,7 +1,7 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/WP_About.jsx
 
 import { useEffect, useState } from "react"
-import { getWriterInfoByUserId } from "../../services/WriterService.js"
+import { getWriterInfoByUserId } from "../../services/writerService.js"
 import { Link } from "react-router-dom";
 
 export const WriterProfileAbout = ({currentUser}) => {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/WriterService.js";
+import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/writerService.js";
 import { getUserById, SubmitUserInfo } from "../../services/userService.js";
 
 
@@ -34,8 +34,10 @@ export const EditProfile = ( {currentUser} ) =>{
         event.preventDefault()
         if (!writerInfo) return; 
         const { user, ...writerInfoData } = writerInfo; 
+
         const writerInfoWithoutUser = { ...writerInfoData, userId: writerInfo.user.id }; 
-        SubmitWriterInfo(writerInfoWithoutUser, currentUser.id).then((updatedWriterInfo) =>{
+        
+        SubmitWriterInfo(writerInfoWithoutUser, writerInfoWithoutUser.id).then((updatedWriterInfo) =>{
             console.log("writer info with out user", writerInfoWithoutUser)
         })
         SubmitUserInfo(user, currentUser.id) 
