@@ -1,8 +1,8 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Edit/EditArticle.jsx
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { getArticleById, SubmitEditArticle, deleteArticle } from "../../services/ArticleService.js"
-import { getAllCategories } from "../../services/CategoriesService.js"
+import { getArticleById, SubmitEditArticle, deleteArticle } from "../../services/articleService.js"
+import { getAllCategories } from "../../services/categoriesService.js"
 
 
 export const EditArticle = ({currentUser}) =>{

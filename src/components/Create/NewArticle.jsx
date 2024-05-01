@@ -1,7 +1,7 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Create/NewArticle.jsx
 import { useNavigate } from "react-router-dom"
-import { SubmitNewArticle } from "../../services/ArticleService.js"
-import { getAllCategories } from "../../services/CategoriesService.js"
+import { SubmitNewArticle } from "../../services/articleService.js"
+import { getAllCategories } from "../../services/categoriesService.js"
 import { useEffect, useState } from "react"
 
 export const CreateNewArticle = ({currentUser}) =>{

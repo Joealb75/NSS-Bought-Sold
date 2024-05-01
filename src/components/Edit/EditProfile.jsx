@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/WriterService.js";
-import { getUserById, SubmitUserInfo } from "../../services/userService.js";
-
+import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/writerService.js";
+import {  SubmitUserInfo } from "../../services/userService.js";
 
 
 export const EditProfile = ( {currentUser} ) =>{
@@ -23,21 +22,30 @@ export const EditProfile = ( {currentUser} ) =>{
       }, [currentUser.id]);
 
 // ---------------------------------------------------- HelperFnc()
-    const handleProfileChange = (event) =>{
-        const { name, value  } = event.target
-        setWriterInfo((oldProfile) => (
-            { ...oldProfile, [name]: value }
-        ))
-    } /// CURRENT STATE BEFORE CHANGES
+    const handleProfileChange = (event) => {
+        const { name, value } = event.target;
+        if (name === "fullName" || name === "email" || name === "userImg") {
+        setWriterInfo((oldProfile) => ({
+            ...oldProfile,
+            user: { ...oldProfile.user, [name]: value },
+        }));
+        } else {
+        setWriterInfo((oldProfile) => ({ ...oldProfile, [name]: value }));
+        }
+    }; 
 
     const handleSaveProfile = (event) =>{
-        const copy = writerInfo // replacing userObj with user ID so it can send to writers
-        copy.user = writerInfo.user.id
         event.preventDefault()
-        SubmitWriterInfo(copy, currentUser.id).then((updatedWriterInfo) =>{
-            console.log(writerInfo)
+        if (!writerInfo) return; 
+        const { user, ...writerInfoData } = writerInfo; 
+
+        const writerInfoWithoutUser = { ...writerInfoData, userId: writerInfo.user.id }; 
+        
+        SubmitWriterInfo(writerInfoWithoutUser, writerInfoWithoutUser.id).then((updatedWriterInfo) =>{
+            console.log("writer info with out user", writerInfoWithoutUser)
         })
-        SubmitUserInfo(writerInfo.user, currentUser.id)
+        SubmitUserInfo(user, currentUser.id) 
+        console.log("user Info:" ,user)
     }
 
 // ---------------------------------------------------- DOM
