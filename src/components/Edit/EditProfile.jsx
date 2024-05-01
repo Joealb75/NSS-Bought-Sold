@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/writerService.js";
-import { getUserById, SubmitUserInfo } from "../../services/userService.js";
-
+import {  SubmitUserInfo } from "../../services/userService.js";
 
 
 export const EditProfile = ( {currentUser} ) =>{
@@ -23,12 +22,17 @@ export const EditProfile = ( {currentUser} ) =>{
       }, [currentUser.id]);
 
 // ---------------------------------------------------- HelperFnc()
-    const handleProfileChange = (event) =>{
-        const { name, value  } = event.target
-        setWriterInfo((oldProfile) => (
-            { ...oldProfile, [name]: value }
-        ))
-    } /// CURRENT STATE BEFORE CHANGES
+    const handleProfileChange = (event) => {
+        const { name, value } = event.target;
+        if (name === "fullName" || name === "email" || name === "userImg") {
+        setWriterInfo((oldProfile) => ({
+            ...oldProfile,
+            user: { ...oldProfile.user, [name]: value },
+        }));
+        } else {
+        setWriterInfo((oldProfile) => ({ ...oldProfile, [name]: value }));
+        }
+    }; 
 
     const handleSaveProfile = (event) =>{
         event.preventDefault()
@@ -43,9 +47,6 @@ export const EditProfile = ( {currentUser} ) =>{
         SubmitUserInfo(user, currentUser.id) 
         console.log("user Info:" ,user)
     }
-        // only sending userId at this moment
-        // ASK How to get user{object} to send with SubmitUserInfo
-
 
 // ---------------------------------------------------- DOM
     return (
