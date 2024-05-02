@@ -51,6 +51,7 @@ export const EditArticle = ({currentUser}) =>{
         event.preventDefault()
         SubmitEditArticle(article, articleId).then((updatedArticle) =>{
             console.log(updatedArticle)
+            navigate(`/my-articles/${currentUser.id}/view-article/${articleId}`)
             // Navigate to updated article display page 
         })
     }
@@ -65,9 +66,11 @@ export const EditArticle = ({currentUser}) =>{
 
     return(
         <>
+        <h1>Edit Article</h1>
             <form>
                 <div>
                     <label>
+                        Title:
                         <input
                         type="text"
                         name="title"
@@ -77,24 +80,27 @@ export const EditArticle = ({currentUser}) =>{
                         
                     </label>
 
-                    <select
-                    className="profile-categories"
-                    name="categoryId"
-                    aria-label="Select Article Category"
-                    value={article.categoryId}
-                    onChange={handleInputChange}
-                    >
+                    <label>
+                        Categories
+                        <select
+                        className="profile-categories"
+                        name="categoryId"
+                        aria-label="Select Article Category"
+                        value={article.categoryId}
+                        onChange={handleInputChange}
+                        >
 
-                    <option value="">Change Article Category</option>
-                    {categories.map((category)=> (
-                    <option key={category.id} value={category.id}>{category.name}</option>
-                    ))}
+                        <option value="">Change Article Category</option>
+                        {categories.map((category)=> (
+                        <option key={category.id} value={category.id}>{category.name}</option>
+                        ))}
 
-                    </select>
-
+                        </select>
+                    </label>
                 </div>
 
                 <div>
+                    <h4>Article Content</h4>
                     <textarea 
                     name="articleContent"
                     className=""
@@ -104,6 +110,7 @@ export const EditArticle = ({currentUser}) =>{
                 </div>
                 
                 <div>
+                    <h4>Article Image</h4>
                     <input 
                     placeholder="Insert Image URL"
                     name="image"

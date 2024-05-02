@@ -8,22 +8,24 @@ import "./writerProfile.css"
 export const WriterProfileMyArticles = ( {currentUser} ) => {
     
     const [allUserArticles, setAllUserArticles ] = useState([])
-
+    
     useEffect(() => {
         getArticlesByUserId(currentUser.id).then((data) =>{
-
             setAllUserArticles(data)
-            console.log(data)
+            
         })
 
     },[currentUser.id])
 
     return (
+    <>
         <section className="profile">
             {allUserArticles.map((articleObj)=>{
+                console.log(articleObj)
                 return(
+                    
                     <div key={articleObj.id} className="myArticles-card">
-
+                        <Link to={`/my-articles/${currentUser.id}/view-article/${articleObj.id}`}>
                         <div className="myArticles-title">
                             <h2>{articleObj.title}</h2>
                         </div>
@@ -31,7 +33,7 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
                         <div className="myArticles-imageContainer">
                             <img src={articleObj.image} className="myArticles-imageContainer img"/>
                         </div>
-
+                        </Link>
                         <div className="myArticles-buttonContainer">
                             <Link to={`/my-articles/${currentUser.id}/edit-article/${articleObj.id}`} >
                                 <button> Edit Article </button>
@@ -39,8 +41,10 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
                         </div>
                     
                     </div>
+                    
                 )
             })}
         </section>
+    </>
     )
 }
