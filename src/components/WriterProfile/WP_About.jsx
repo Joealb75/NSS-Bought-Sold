@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { getWriterInfoByUserId } from "../../services/writerService.js"
 import { Link } from "react-router-dom";
+import { WritersProfileCard } from "./WP_ProfileHeader.jsx";
 
 export const WriterProfileAbout = ({currentUser}) => {
 
@@ -17,6 +18,9 @@ export const WriterProfileAbout = ({currentUser}) => {
 
     return(
         <>
+            <section>
+                <WritersProfileCard currentUser={currentUser} />
+            </section>
             <section className="profile">
 
                 <section className="profile-aboutMe">

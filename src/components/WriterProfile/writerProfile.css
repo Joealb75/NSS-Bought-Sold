@@ -1,55 +1,141 @@
 /* FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writerProfile.css */
-.profile {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+/* General styles and resets */
+* {
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    margin: 0; /* Removes the default margin from all elements */
+    padding: 0; /* Removes the default padding from all elements */
 }
 
+body {
+    font-family: 'Arial', sans-serif; /* Sets the default font for the body of the document */
+    background-color: #f4f4f4; /* Sets a light grey background color for the body */
+    color: #333; /* Sets a dark grey text color for the body */
+}
+
+/* Container for the articles */
+.articles-container {
+    display: grid; /* Uses CSS Grid layout for placing child elements */
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
+    gap: 20px; /* Sets a gap of 20px between grid items */
+    padding: 20px; /* Adds 20px padding around the container */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+.article {
+    background-color: #ffffff; /* Sets a white background color for each article */
+    border: 1px solid #ddd; /* Adds a light grey border around each article */
+    border-radius: 8px; /* Rounds the corners of the border */
+    overflow: hidden; /* Prevents child elements from overflowing the article boundaries */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow beneath the article */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the box-shadow effect on hover */
+}
+
+.article:hover {
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2); /* Increases the shadow's size and darkness on hover */
+}
+
+.article-image img {
+    width: 100%; /* Ensures the image spans the full width of its container */
+    height: 180px; /* Sets a fixed height for images */
+    object-fit: cover; /* Ensures the image covers the designated area without distorting its aspect ratio */
+    border-top-left-radius: 8px; /* Rounds the top left corner of the image */
+    border-top-right-radius: 8px; /* Rounds the top right corner of the image */
+}
+
+.article-title h3 {
+    font-size: 18px; /* Sets the font size for article titles */
+    margin: 16px; /* Adds margin around the title for spacing */
+    color: #333; /* Sets the text color for titles */
+}
+
+.article-edit {
+    text-align: center; /* Centers the contents of the edit button container */
+    padding: 12px; /* Adds padding inside the edit button container for spacing */
+}
+
+.article-edit button {
+    background-color: #007bff; /* Sets a bright blue background color for the button */
+    color: #ffffff; /* Sets the text color to white for contrast */
+    border: none; /* Removes the default border of the button */
+    padding: 10px 20px; /* Adds padding inside the button to increase clickable area */
+    font-size: 16px; /* Sets the font size of the button text */
+    cursor: pointer; /* Changes the mouse cursor to a pointer when hovering over the button */
+    border-radius: 4px; /* Rounds the corners of the button */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change on hover */
+}
+
+.article-edit button:hover {
+    background-color: #0056b3; /* Darkens the button's background color on hover */
+}
+
+.link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits color from parent elements for consistency */
+}
+
+/* WritersProfileCard styles, if needed */
+.writers-profile-card {
+    background-color: #ffffff; /* Sets a white background for the profile card */
+    padding: 20px; /* Adds padding inside the profile card for spacing */
+    border-radius: 8px; /* Rounds the corners of the profile card */
+    margin-bottom: 20px; /* Adds space below the profile card */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow beneath the profile card */
+}
+
+
+/* ________________HEADER CSS________________ */
+
+
+/* Resets margin and padding for all elements to ensure consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Main header container */
+.header {
+    background-color: #2C3E50; /* Dark blue background color */
+    color: #FFFFFF; /* White text color for contrast */
+    padding: 10px 20px; /* Padding around the content within the header */
+    display: flex; /* Uses flexbox for layout */
+    align-items: center; /* Vertically centers the items in the header */
+}
+
+/* Container for the content in the header */
+.header-content {
+    display: flex; /* Uses flexbox to align image and text side by side */
+    align-items: center; /* Centers the items vertically */
+    max-width: 1200px; /* Maximum width of the content */
+    margin: 0 auto; /* Centers the content horizontally */
+    width: 100%; /* Full width */
+}
+
+/* Profile image styling */
+.profile-image {
+    border-radius: 50%; /* Makes the image circular */
+    width: 60px; /* Fixed width for the image */
+    height: 60px; /* Fixed height for the image */
+    margin-right: 20px; /* Adds space between the image and the text */
+}
+
+/* Container for profile name and title */
+.profile-info {
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Stacks items vertically */
+}
+
+/* Styling for the profile name */
 .profile-name {
-    padding-left: 10px;
-    text-align: left;
+    font-size: 1.5rem; /* Sets the size of the name */
+    font-weight: bold; /* Makes the name bold */
+    margin-bottom: 5px; /* Adds space below the name */
 }
 
-.profile-job {
- 
-}
-
-.myArticles-card {
-    border: solid 1px orange;
-    width: 250px;
-    height: 300px; /* Increased height to make space for the button */
-    overflow: hidden; /* Hide any excess image size */
-    display: flex; /* Add display flex */
-    flex-direction: column; /* Add flex direction column */
-    align-items: center; /* Add align items center */
-}
-
-.myArticles-title{
-    font-size: 8px;
-}
-
-.myArticles-imageContainer{
-    width: 250px; /* Set the width of the container */
-    height: 150px; /* Adjust the height to make space for the button */
-}
-
-.myArticles-imageContainer img{
-    max-width: 100%; /* Set the max width to 100% of the container */
-    max-height: 100%; /* Set the max height to 100% of the container */
-    object-fit: contain; /* Resize the image to fit within the container */
-    vertical-align: middle; /* Vertically align the image */
-}
-
-.myArticles-buttonContainer {
-    margin-top: 20px; /* Add some space between the image and the button */
-    text-align: center; /* Center the button horizontally */
-}
-
-.myArticles-buttonContainer button {
-    padding: 10px; /* Add some padding to the button */
-    background-color: orange; /* Change the button color */
-    color: white; /* Change the button text color */
-    border: none; /* Remove the button border */
-    border-radius: 5px; /* Add a border radius to the button */
-    cursor: pointer; /* Change the cursor to a pointer on hover */
+/* Styling for the profile title */
+.profile-title {
+    font-size: 1rem; /* Sets the size of the title */
+    opacity: 0.8; /* Makes the title slightly transparent for design */
 }

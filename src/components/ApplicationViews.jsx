@@ -10,6 +10,7 @@ import { WriterProfileAbout } from "./WriterProfile/WP_About.jsx";
 import { EditArticle } from "./Edit/EditArticle.jsx";
 import { ViewWriterArticle } from "./View/viewArticle.jsx";
 import {EditProfile} from "./Edit/EditProfile.jsx";
+import { WritersProfileCard } from "./WriterProfile/WP_ProfileHeader.jsx";
 
 
 
@@ -41,6 +42,7 @@ export const ApplicationViews = () => {
           <Route path={`/my-articles/${currentUser.id}/edit-article/:articleId`} element={<EditArticle currentUser={currentUser}/>} />
           <Route path={`/my-articles/${currentUser.id}/view-article/:articleId`} element={<ViewWriterArticle currentUser={currentUser}/>} />
           <Route path={`/about/edit-profile/${currentUser.id}`} element={<EditProfile currentUser={currentUser}/>} />
+          <Route path="/random" element={<WritersProfileCard currentUser={currentUser}/>} />
           
           
           
