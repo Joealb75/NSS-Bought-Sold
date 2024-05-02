@@ -7,7 +7,7 @@ export const Register = (props) => {
   const [customer, setCustomer] = useState({
     email: "",
     fullName: "",
-    isStaff: false,
+    isWriter: false,
   })
   let navigate = useNavigate()
 
@@ -18,7 +18,7 @@ export const Register = (props) => {
           "B&S_User",
           JSON.stringify({
             id: createdUser.id,
-            staff: createdUser.isStaff,
+            isWriter: createdUser.isWriter,
           })
         )
 
@@ -82,11 +82,11 @@ export const Register = (props) => {
               <input
                 onChange={(evt) => {
                   const copy = { ...customer }
-                  copy.isStaff = evt.target.checked
+                  copy.isWriter = evt.target.checked
                   setCustomer(copy)
                 }}
                 type="checkbox"
-                id="isStaff"
+                id="isWriter"
               />
               I am an employee{" "}
             </label>

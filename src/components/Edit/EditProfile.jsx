@@ -28,9 +28,11 @@ export const EditProfile = ( {currentUser} ) =>{
         setWriterInfo((oldProfile) => ({
             ...oldProfile,
             user: { ...oldProfile.user, [name]: value },
+            // Updates the nested user object if "fullName, email or userImg" was changed
         }));
         } else {
         setWriterInfo((oldProfile) => ({ ...oldProfile, [name]: value }));
+            // else update the writerInfo object 
         }
     }; 
 
@@ -38,14 +40,17 @@ export const EditProfile = ( {currentUser} ) =>{
         event.preventDefault()
         if (!writerInfo) return; 
         const { user, ...writerInfoData } = writerInfo; 
+        // put the nested user object and writer info into separate variables using the spread operator 
 
         const writerInfoWithoutUser = { ...writerInfoData, userId: writerInfo.user.id }; 
-        
+        // replace the nested user object with a new property userId
         SubmitWriterInfo(writerInfoWithoutUser, writerInfoWithoutUser.id).then((updatedWriterInfo) =>{
             console.log("writer info with out user", writerInfoWithoutUser)
+            // later: useNavigate to go to different page
         })
-        SubmitUserInfo(user, currentUser.id) 
-        console.log("user Info:" ,user)
+        SubmitUserInfo(user, currentUser.id).then((updatedUserInfo) =>{ 
+            console.log("user Info:" ,user) })
+            // later: useNavigate to go to different page
     }
 
 // ---------------------------------------------------- DOM
@@ -58,6 +63,7 @@ export const EditProfile = ( {currentUser} ) =>{
         <form>
             <div>
                 <label>
+                    Name:
                     <input 
                     type="text"
                     name="fullName"
@@ -67,6 +73,7 @@ export const EditProfile = ( {currentUser} ) =>{
                 </label>
 
                 <label>
+                    Email:
                     <input 
                     type="text"
                     name="email"
@@ -76,6 +83,7 @@ export const EditProfile = ( {currentUser} ) =>{
                 </label>
 
                 <label>
+                    Image:
                     <input 
                     type="text"
                     name="userImg"
@@ -88,6 +96,7 @@ export const EditProfile = ( {currentUser} ) =>{
 
             <div>
                 <label>
+                    Position:
                     <input 
                     type="text"
                     name="writerProfession"
@@ -97,6 +106,7 @@ export const EditProfile = ( {currentUser} ) =>{
                 </label>
 
                 <label>
+                    Company:
                     <input 
                     type="text"
                     name="writerCompany"
@@ -107,6 +117,7 @@ export const EditProfile = ( {currentUser} ) =>{
             </div>
 
             <div className="editProfile-container-AboutMe">
+                <h4>About Me</h4>
                 <div>
                     <textarea 
                     name="aboutMe"
@@ -114,7 +125,8 @@ export const EditProfile = ( {currentUser} ) =>{
                     onChange={handleProfileChange}
                     />
                 </div>
-
+                
+                <h4>My Skills</h4>
                 <div>
                     <textarea 
                     name="writerSkills"
