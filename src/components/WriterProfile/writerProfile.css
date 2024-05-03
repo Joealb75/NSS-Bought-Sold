@@ -1,6 +1,6 @@
 /* FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writerProfile.css */
 
-/* General styles and resets */
+
 * {
     box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
     margin: 0; /* Removes the default margin from all elements */
@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Arial', sans-serif; /* Sets the default font for the body of the document */
-    background-color: #f4f4f4; /* Sets a light grey background color for the body */
+    background-color: #181818; /* Sets a light grey background color for the body */
     color: #333; /* Sets a dark grey text color for the body */
 }
 
@@ -88,7 +88,7 @@ body {
 /* ________________HEADER CSS________________ */
 
 
-/* Resets margin and padding for all elements to ensure consistency across browsers */
+
 * {
     margin: 0;
     padding: 0;
@@ -97,7 +97,7 @@ body {
 
 /* Main header container */
 .header {
-    background-color: #2C3E50; /* Dark blue background color */
+    background-color: #181818; /* Dark blue background color */
     color: #FFFFFF; /* White text color for contrast */
     padding: 10px 20px; /* Padding around the content within the header */
     display: flex; /* Uses flexbox for layout */
@@ -116,9 +116,10 @@ body {
 /* Profile image styling */
 .profile-image {
     border-radius: 50%; /* Makes the image circular */
-    width: 60px; /* Fixed width for the image */
-    height: 60px; /* Fixed height for the image */
+    width: 150px; /* Fixed width for the image */
+    height: 150px; /* Fixed height for the image */
     margin-right: 20px; /* Adds space between the image and the text */
+    margin-top: 20px;
 }
 
 /* Container for profile name and title */
@@ -132,6 +133,7 @@ body {
     font-size: 1.5rem; /* Sets the size of the name */
     font-weight: bold; /* Makes the name bold */
     margin-bottom: 5px; /* Adds space below the name */
+    color: white;
 }
 
 /* Styling for the profile title */

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getWriterInfoByUserId } from "../../services/writerService.js";
 import { Link} from "react-router-dom";
 import { CreateNewArticle } from "../Create/NewArticle.jsx";
+import { ProfileToolBar } from "../Nav/ToolBar.jsx";
 
 export const WriterProfile = ({ currentUser }) => {
 
@@ -18,6 +19,7 @@ export const WriterProfile = ({ currentUser }) => {
 
   return (
     <>
+      
       <section className="profile">
         <div className="profile-img">
           <img src={writer?.user?.userImg} />
@@ -31,6 +33,10 @@ export const WriterProfile = ({ currentUser }) => {
             {writer?.writerProfession} @ {writer?.writerCompany}
           </h4>
         </div>
+      </section>
+
+      <section>
+        <ProfileToolBar currentUser={currentUser} />
       </section>
 
       <section className="profile">

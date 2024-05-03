@@ -4,6 +4,7 @@ import { getArticlesByUserId } from "../../services/articleService.js"
 import { Link } from "react-router-dom"
 import "./writerProfile.css"
 import { WritersProfileCard } from "./WP_ProfileHeader.jsx"
+import { ProfileToolBar } from "../Nav/ToolBar.jsx"
 
 
 export const WriterProfileMyArticles = ( {currentUser} ) => {
@@ -22,6 +23,7 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
         <>
             <section>
                 <WritersProfileCard currentUser={currentUser} />
+                <ProfileToolBar currentUser={currentUser} />
             </section>
             <section className="articles-container">
                 {allUserArticles.map((articleObj) => {

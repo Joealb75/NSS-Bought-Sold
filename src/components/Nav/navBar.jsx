@@ -8,18 +8,7 @@ export const NavBar = ({currentUser}) =>{
     const navigate = useNavigate()
     return <ul className="navbar">
         <h3>Bought & Sold</h3>
-        <li className="navbar-item">
-            <Link to={`/profile/${currentUser.id}`}>Profile</Link>
-        </li>
-        <li className="navbar-item">
-            <Link to={`/about/${currentUser.id}`}>About</Link>
-        </li>
-        <li className="navbar-item">
-            <Link to={`/my-articles/${currentUser.id}`}>My Articles</Link>
-        </li>
         
-        
-
         { localStorage.getItem("B&S_User") ? (
   <li className="navbar-item navbar-logout">
     <Link

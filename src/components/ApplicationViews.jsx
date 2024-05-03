@@ -14,6 +14,7 @@ import { WritersProfileCard } from "./WriterProfile/WP_ProfileHeader.jsx";
 
 
 
+
 export const ApplicationViews = () => {
 
   
