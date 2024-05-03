@@ -1,0 +1,28 @@
+.burger-menu {
+    position: relative;
+}
+
+.menu-icon {
+    cursor: pointer;
+    width: 50px;
+    position: fixed;
+    top: 10px; /* Adjust top margin as needed */
+    right: 10px; /* Adjust right margin to place in the top-right corner */
+    z-index: 2; /* Ensures the menu icon stays on top */
+}
+
+.menu-content {
+    position: fixed;
+    top: 60px; /* Adjust based on the size of the menu icon */
+    right: 10px; /* Aligns dropdown with the menu icon */
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu-link {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: black; /* Maintain consistency in color naming (black instead of Black) */
+}

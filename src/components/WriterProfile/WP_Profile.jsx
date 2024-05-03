@@ -1,9 +1,12 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/WP_Profile.jsx
+import "./writerProfile.css"
+import "/../NSS-Bought-Sold/src/App.css" 
 import { useEffect, useState } from "react";
 import { getWriterInfoByUserId } from "../../services/writerService.js";
 import { Link} from "react-router-dom";
 import { CreateNewArticle } from "../Create/NewArticle.jsx";
 import { ProfileToolBar } from "../Nav/ToolBar.jsx";
+import { WritersProfileCard } from "./WP_ProfileHeader.jsx";
 
 export const WriterProfile = ({ currentUser }) => {
 
@@ -19,38 +22,23 @@ export const WriterProfile = ({ currentUser }) => {
 
   return (
     <>
-      
-      <section className="profile">
-        <div className="profile-img">
-          <img src={writer?.user?.userImg} />
-        </div>
-        <div className="profile-name">
-          <h2>{writer?.user?.fullName}</h2>
-
-          {/* Checks to see if the writers array is empty - if its not empty render the following */}
-
-          <h4 className="profile-job">
-            {writer?.writerProfession} @ {writer?.writerCompany}
-          </h4>
-        </div>
-      </section>
-
       <section>
+        <WritersProfileCard currentUser={currentUser} />
         <ProfileToolBar currentUser={currentUser} />
       </section>
 
-      <section className="profile">
-        <div className="profile-featured">Featured Article Space</div>
+      <section className="">
+        <div className="">Featured Article Space</div>
       </section>
 
-      <section className="profile">
-        <div className="profile-latest"> latest Article Section </div>
+      <section className="">
+        <div className=""> latest Article Section </div>
       </section>
 
       <section>
         <Link to={`/profile/${currentUser.id}/new-article`}>
           <button
-            className="profile-newArticle"
+            className=""
             // when clicked showCreateNewArticle is set to 'true' 
             onClick={() => setShowCreateNewArticle(!showCreateNewArticle)}
           >Create New Article

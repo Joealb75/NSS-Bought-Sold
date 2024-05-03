@@ -19,8 +19,8 @@ export const WritersProfileCard = ({currentUser}) => {
     <div className="header-content">
         <img src={writer.user?.userImg} alt="Joe Albrecht" className="profile-image"/>
         <div className="profile-info">
-            <h1 className="profile-name">Joe Albrecht</h1>
-            <p className="profile-title">Realtor @ SimpliHOM</p>
+            <h1 className="profile-name">{writer.user?.fullName}</h1>
+            <p className="profile-title">{writer.writerProfession} @ {writer.writerCompany}</p>
         </div>
     </div>
 </header>

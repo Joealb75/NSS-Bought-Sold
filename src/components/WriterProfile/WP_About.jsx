@@ -36,7 +36,7 @@ export const WriterProfileAbout = ({currentUser}) => {
                     </div>
                     <div className="profile-about-skills skills-box">
                         <h1>Skills</h1>
-                        <span>{writer.writerSkills}</span>
+                        <p>{writer.writerSkills}</p>
                     </div>
                 </section>
             </section>

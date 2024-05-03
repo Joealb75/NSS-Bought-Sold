@@ -140,4 +140,5 @@ body {
 .profile-title {
     font-size: 1rem; /* Sets the size of the title */
     opacity: 0.8; /* Makes the title slightly transparent for design */
+    color: white;
 }

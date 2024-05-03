@@ -46,11 +46,12 @@ export const EditProfile = ( {currentUser} ) =>{
         // replace the nested user object with a new property userId
         SubmitWriterInfo(writerInfoWithoutUser, writerInfoWithoutUser.id).then((updatedWriterInfo) =>{
             console.log("writer info with out user", writerInfoWithoutUser)
-            // later: useNavigate to go to different page
+            
         })
         SubmitUserInfo(user, currentUser.id).then((updatedUserInfo) =>{ 
             console.log("user Info:" ,user) })
-            // later: useNavigate to go to different page
+       
+        navigate(`/about/${currentUser.id}`)
     }
 
 // ---------------------------------------------------- DOM
