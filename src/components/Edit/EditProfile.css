@@ -1,0 +1,62 @@
+.edit-profile {
+    max-width: 830px;
+    margin: auto;
+    padding: 20px; /* Equal padding around the form */
+    background: #181818;
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-profile-heading {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.edit-profile-form {
+    width: 100%;
+    padding: 20px; /* Equal padding on all sides */
+}
+
+.form-row, .form-row-textarea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items with space between */
+    margin-bottom: 20px;
+}
+
+label {
+    flex: 0 0 150px; /* Fixed width for labels */
+    margin-right: 10px;
+    text-align: right; /* Aligns text to the right of the label */
+}
+
+input[type="text"],
+textarea {
+    flex-grow: 1; /* Allows inputs and textareas to grow */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+}
+
+.edit-profile-save-btn {
+    width: 200px; /* Set button width to 200px */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end; /* Aligns the button to the right */
+}
+
+.edit-profile-save-btn:hover {
+    background-color: #45a049;
+}
+
+

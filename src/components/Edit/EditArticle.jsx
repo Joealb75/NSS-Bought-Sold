@@ -1,4 +1,5 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Edit/EditArticle.jsx
+import "./EditArticle.css"
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getArticleById, SubmitEditArticle, deleteArticle } from "../../services/articleService.js"
@@ -65,79 +66,74 @@ export const EditArticle = ({currentUser}) =>{
     }
 
     return(
-        <>
-        <h1>Edit Article</h1>
-            <form>
-                <div>
-                    <label>
-                        Title:
-                        <input
-                        type="text"
-                        name="title"
-                        value={article.title}
-                        onChange={handleInputChange}
-                        />
-                        
-                    </label>
-
-                    <label>
-                        Categories
-                        <select
-                        className="profile-categories"
-                        name="categoryId"
-                        aria-label="Select Article Category"
-                        value={article.categoryId}
-                        onChange={handleInputChange}
-                        >
-
-                        <option value="">Change Article Category</option>
-                        {categories.map((category)=> (
-                        <option key={category.id} value={category.id}>{category.name}</option>
-                        ))}
-
-                        </select>
-                    </label>
+        <section className="edit-article">
+            <h1 className="edit-article-heading">Edit Article</h1>
+            <form className="edit-article-form">
+                <div className="form-group">
+                    <input
+                    className="input-title"
+                    type="text"
+                    id="title"
+                    name="title"
+                    placeholder="Article Title"
+                    value={article.title}
+                    onChange={handleInputChange}
+                    />
                 </div>
-
-                <div>
-                    <h4>Article Content</h4>
+    
+                <div className="form-group">
+                    <select
+                    className="select-category"
+                    id="category"
+                    name="categoryId"
+                    aria-label="Select Article Category"
+                    value={article.categoryId}
+                    onChange={handleInputChange}
+                    >
+                    <option value="">Categories</option>
+                    {categories.map((category) => (
+                    <option key={category.id} value={category.id}>{category.name}</option>
+                    ))}
+                    </select>
+                </div>
+    
+                <div className="form-group-textarea">
                     <textarea 
+                    className="textarea-content"
                     name="articleContent"
-                    className=""
+                    placeholder="Article Content"
                     value={article.articleContent}
                     onChange={handleInputChange}
                     />
                 </div>
-                
-                <div>
-                    <h4>Article Image</h4>
+    
+                <div className="form-group">
                     <input 
-                    placeholder="Insert Image URL"
+                    className="input-image"
+                    placeholder="Article Image URL"
                     name="image"
                     type="text"
                     value={article.image}
                     onChange={handleInputChange}
                     />
                 </div>
-
-
-                <div>
+    
+                <div className="form-group-buttons">
                     <button
-                    type="delete" 
-                    className="editArticle-deleteBtn"
+                    type="button"
+                    className="edit-article-delete-btn"
                     onClick={handleDeleteArticle}
-                    >Delete Article</button>
-
-
+                    >Delete</button>
+    
                     <button
                     type="submit"
-                    className="editArticle-saveBtn"
+                    className="edit-article-save-btn"
                     onClick={handleSaveArticleChanges}
-                    >Save Changes</button>
+                    >Save</button>
                 </div>
-
             </form>
-        </>
-    )
+        </section>
+    );
+    
 }
 

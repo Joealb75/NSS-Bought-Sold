@@ -1,0 +1,66 @@
+.edit-article {
+    max-width: 400px; 
+    margin: auto;
+    padding: 20px;
+    background: #181818;
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-article-heading {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.edit-article-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-title, .input-image, .select-category, .textarea-content {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #333;
+    color: #fff;
+}
+
+.textarea-content {
+    height: 240px; 
+}
+
+.form-group-buttons {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px;
+}
+
+.edit-article-delete-btn, .edit-article-save-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-article-delete-btn {
+    background-color: #f44336;
+}
+
+.edit-article-delete-btn:hover, .edit-article-save-btn:hover {
+    opacity: 0.8;
+}
+
+
+
+
