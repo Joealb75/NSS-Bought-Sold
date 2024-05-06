@@ -18,6 +18,7 @@ export const WriterProfileAbout = ({currentUser}) => {
 
     return(
         <>
+        <div className="color">
             <section>
                 <WritersProfileCard currentUser={currentUser} />
             </section>
@@ -40,6 +41,7 @@ export const WriterProfileAbout = ({currentUser}) => {
                     </div>
                 </section>
             </section>
+        </div>
         </>
     )
 }

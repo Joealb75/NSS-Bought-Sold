@@ -21,6 +21,7 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
 
     return (
         <>
+        <div className="color">
             <section>
                 <WritersProfileCard currentUser={currentUser} />
                 <ProfileToolBar currentUser={currentUser} />
@@ -47,6 +48,7 @@ export const WriterProfileMyArticles = ( {currentUser} ) => {
                     );
                 })}
             </section>
+            </div>
         </>
     );
 }

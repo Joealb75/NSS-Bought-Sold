@@ -1,16 +1,6 @@
 /* FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writerProfile.css */
-
-
-* {
-    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
-    margin: 0; /* Removes the default margin from all elements */
-    padding: 0; /* Removes the default padding from all elements */
-}
-
-body {
-    font-family: 'Arial', sans-serif; /* Sets the default font for the body of the document */
-    background-color: #181818; /* Sets a light grey background color for the body */
-    color: #333; /* Sets a dark grey text color for the body */
+.color {
+    background-color: #181818;
 }
 
 /* Container for the articles */

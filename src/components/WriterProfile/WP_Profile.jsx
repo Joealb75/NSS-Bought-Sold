@@ -22,6 +22,7 @@ export const WriterProfile = ({ currentUser }) => {
 
   return (
     <>
+    <div className="color">
       <section>
         <WritersProfileCard currentUser={currentUser} />
         <ProfileToolBar currentUser={currentUser} />
@@ -50,6 +51,7 @@ export const WriterProfile = ({ currentUser }) => {
           window.location.pathname === `/profile/${currentUser.id}/new-article` && (
             <CreateNewArticle currentUser={currentUser} /> )}
       </section>
+      </div>
     </>
   );
 };

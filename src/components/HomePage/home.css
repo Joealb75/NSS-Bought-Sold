@@ -1,25 +1,40 @@
-/* CSS for the content container */
-.content-container {
-    display: flex;           /* Enables flexbox layout */
-    justify-content: space-between; /* Spaces out the child elements */
-    align-items: start;      /* Aligns items at the start of the flex container */
+.bs-home-page .content-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust the ratio as needed */
+    height: 100vh;
+    width: 100%;
+    
 }
 
-/* CSS for the text section */
-.text-section {
-    flex: 1;                /* Allows the text section to grow */
-    padding-right: 20px;    /* Adds some padding between the text and the image */
+.text-section h2 p {
+    padding: 20px;
+     /* Assuming a semi-transparent background for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
 }
 
-/* CSS for the image section */
 .image-section {
-    flex: 1;                /* Allows the image section to grow */
+    background-image: url('/../NSS-Bought-Sold/src/assets/NashvilleBatman.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* CSS for the homeImage in the home page */
-.home-image {
-    width: 100%;            /* Ensures the image uses the full width of its container */
-    height: auto;           /* Maintains the aspect ratio of the image */
-    display: block;         /* Ensures the image is treated as a block-level element */
+.home-text {
+    color: black;
 }
+
+div.bs-home-page {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+
+
 
