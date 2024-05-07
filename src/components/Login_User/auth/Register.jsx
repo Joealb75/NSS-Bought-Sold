@@ -2,11 +2,13 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import { getUserByEmail } from "../../../services/userService.js"
+import { createUser } from "../../../services/userService.js"
 
 export const Register = (props) => {
   const [customer, setCustomer] = useState({
-    email: "",
     fullName: "",
+    userImg: "", 
+    email: "",
     isWriter: false,
   })
   let navigate = useNavigate()
@@ -87,8 +89,9 @@ export const Register = (props) => {
                 }}
                 type="checkbox"
                 id="isWriter"
+                // if isWriter === true POST new writers obj with new UserId
               />
-              I am an employee{" "}
+              I am a Writer{" "}
             </label>
           </div>
         </fieldset>

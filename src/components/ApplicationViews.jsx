@@ -11,6 +11,7 @@ import {EditProfile} from "./Edit/EditProfile.jsx";
 import { WritersProfileCard } from "./WriterProfile/WP_ProfileHeader.jsx";
 import { BurgerMenu } from "./Nav/burger.jsx";
 import { BShomePage } from "./HomePage/home.jsx";
+import { BlogHome } from "./Blog/blogHome.jsx";
 
 
 
@@ -44,6 +45,7 @@ export const ApplicationViews = () => {
           <Route path={`/my-articles/${currentUser.id}/view-article/:articleId`} element={<ViewWriterArticle currentUser={currentUser}/>} />
           <Route path={`/about/edit-profile/${currentUser.id}`} element={<EditProfile currentUser={currentUser}/>} />
           <Route path="/random" element={<WritersProfileCard currentUser={currentUser}/>} />
+          <Route path={`/blog-home`} element={<BlogHome currentUser={currentUser} />} />
           
           
           
