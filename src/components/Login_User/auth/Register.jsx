@@ -1,105 +1,110 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import "./Login.css"
-import { getUserByEmail } from "../../../services/userService.js"
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export const Register = (props) => {
-  const [customer, setCustomer] = useState({
-    email: "",
-    fullName: "",
-    isWriter: false,
-  })
-  let navigate = useNavigate()
+export const Register = () => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isWriter, setIsWriter] = useState(false);
+  const navigate = useNavigate();
 
-  const registerNewUser = () => {
-    createUser(customer).then((createdUser) => {
-      if (createdUser.hasOwnProperty("id")) {
-        localStorage.setItem(
-          "B&S_User",
-          JSON.stringify({
-            id: createdUser.id,
-            isWriter: createdUser.isWriter,
-          })
-        )
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        navigate("/")
-      }
-    })
-  }
+    // Validate full name
+    if (!fullName) {
+      window.alert('Please enter your full name');
+      return;
+    }
 
-  const handleRegister = (e) => {
-    e.preventDefault()
-    getUserByEmail(customer.email).then((response) => {
-      if (response.length > 0) {
-        // Duplicate email. No good.
-        window.alert("Account with that email address already exists")
-      } else {
-        // Good email, create user.
-        registerNewUser()
-      }
-    })
-  }
+    // Check for duplicate emails
+    const response = await fetch('http://localhost:8088/users');
+    const users = await response.json();
+    const emailExists = users.some(user => user.email === email);
 
-  const updateCustomer = (evt) => {
-    const copy = { ...customer }
-    copy[evt.target.id] = evt.target.value
-    setCustomer(copy)
-  }
+    if (emailExists) {
+      window.alert('Account with that email address already exists');
+      return;
+    }
+
+    // Create user object
+    const newUser = {
+      fullName,
+      email,
+      userImg: '',
+      isWriter
+    };
+
+    // POST new user
+    const postResponse = await fetch('http://localhost:8088/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newUser)
+    });
+
+    const createdUser = await postResponse.json();
+
+    // Store user in local storage
+    localStorage.setItem('B&S_User', JSON.stringify({ id: createdUser.id, isWriter }));
+
+    // Navigate to home
+    navigate('/');
+
+    // Handle writer details if the user is a writer
+    if (isWriter) {
+      const writerDetails = {
+        userId: createdUser.id,
+        writerCompany: '',
+        writerProfession: '',
+        aboutMe: '',
+        writerSkills: '',
+        featuredArticle: 0
+      };
+
+      await fetch('http://localhost:8088/writers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(writerDetails)
+      });
+    }
+  };
 
   return (
-    <main style={{ textAlign: "center" }}>
-      <form className="form-login" onSubmit={handleRegister}>
-        <h1>Bought & Sold</h1>
-        <h2>Please Register</h2>
+    <div className="container-login">
+      <form className="form-login" onSubmit={handleSubmit}>
         <fieldset>
           <div className="form-group">
             <input
-              onChange={updateCustomer}
               type="text"
-              id="fullName"
               className="form-control"
-              placeholder="Enter your name"
-              required
-              autoFocus
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              placeholder="Full Name"
             />
           </div>
-        </fieldset>
-        <fieldset>
           <div className="form-group">
             <input
-              onChange={updateCustomer}
               type="email"
-              id="email"
               className="form-control"
-              placeholder="Email address"
-              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
             />
           </div>
-        </fieldset>
-        <fieldset>
           <div className="form-group">
             <label>
               <input
-                onChange={(evt) => {
-                  const copy = { ...customer }
-                  copy.isWriter = evt.target.checked
-                  setCustomer(copy)
-                }}
                 type="checkbox"
-                id="isWriter"
+                checked={isWriter}
+                onChange={(e) => setIsWriter(e.target.checked)}
               />
-              I am an employee{" "}
+              Are you a writer?
             </label>
           </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <button className="login-btn btn-info" type="submit">
-              Register
-            </button>
-          </div>
+          <button type="submit" className="form-btn">Create Account</button>
         </fieldset>
       </form>
-    </main>
-  )
-}
+    </div>
+  );
+};
+
+

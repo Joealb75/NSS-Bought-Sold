@@ -1,0 +1,40 @@
+.bs-home-page .content-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Adjust the ratio as needed */
+    height: 100vh;
+    width: 100%;
+    
+}
+
+.text-section h2 p {
+    padding: 20px;
+     /* Assuming a semi-transparent background for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+}
+
+.image-section {
+    background-image: url('/../NSS-Bought-Sold/src/assets/NashvilleBatman.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-text {
+    color: black;
+}
+
+div.bs-home-page {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+

@@ -1,5 +1,5 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/Edit/EditProfile.jsx
-
+import "./EditProfile.css"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/writerService.js";
@@ -46,106 +46,105 @@ export const EditProfile = ( {currentUser} ) =>{
         // replace the nested user object with a new property userId
         SubmitWriterInfo(writerInfoWithoutUser, writerInfoWithoutUser.id).then((updatedWriterInfo) =>{
             console.log("writer info with out user", writerInfoWithoutUser)
-            // later: useNavigate to go to different page
+            
         })
         SubmitUserInfo(user, currentUser.id).then((updatedUserInfo) =>{ 
             console.log("user Info:" ,user) })
-            // later: useNavigate to go to different page
+       
+        navigate(`/about/${currentUser.id}`)
     }
 
 // ---------------------------------------------------- DOM
-    return (
-    <>
-        <div>
-            <h1>Edit Profile</h1>
-        </div>
+return (
+    <section className="edit-profile">
+        <h1 className="edit-profile-heading">Edit Profile</h1>
 
-        <form>
-            <div>
-                <label>
-                    Name:
-                    <input 
+        <form className="edit-profile-form">
+            <div className="form-row">
+                <label htmlFor="fullName">Name:</label>
+                <input 
                     type="text"
+                    id="fullName"
                     name="fullName"
                     value={writerInfo?.user?.fullName || ''}
                     onChange={handleProfileChange}
-                    />
-                </label>
+                />
+            </div>
 
-                <label>
-                    Email:
-                    <input 
+            <div className="form-row">
+                <label htmlFor="email">Email:</label>
+                <input 
                     type="text"
+                    id="email"
                     name="email"
                     value={writerInfo?.user?.email || ''}
                     onChange={handleProfileChange}
-                    />
-                </label>
+                />
+            </div>
 
-                <label>
-                    Image:
-                    <input 
+            <div className="form-row">
+                <label htmlFor="userImg">Image:</label>
+                <input 
                     type="text"
+                    id="userImg"
                     name="userImg"
                     value={writerInfo?.user?.userImg || ''}
                     onChange={handleProfileChange}
-                    />
-                </label>
-
+                />
             </div>
 
-            <div>
-                <label>
-                    Position:
-                    <input 
+            <div className="form-row">
+                <label htmlFor="writerProfession">Position:</label>
+                <input 
                     type="text"
+                    id="writerProfession"
                     name="writerProfession"
                     value={writerInfo?.writerProfession || ''}
                     onChange={handleProfileChange}
-                    />
-                </label>
+                />
+            </div>
 
-                <label>
-                    Company:
-                    <input 
+            <div className="form-row">
+                <label htmlFor="writerCompany">Company:</label>
+                <input 
                     type="text"
+                    id="writerCompany"
                     name="writerCompany"
                     value={writerInfo?.writerCompany || ''}
                     onChange={handleProfileChange}
-                    />
-                </label>
+                />
             </div>
 
-            <div className="editProfile-container-AboutMe">
-                <h4>About Me</h4>
-                <div>
-                    <textarea 
+            <div className="form-row-textarea">
+                <label htmlFor="aboutMe">About Me:</label>
+                <textarea 
+                    id="aboutMe"
                     name="aboutMe"
                     value={writerInfo?.aboutMe || ''}
                     onChange={handleProfileChange}
-                    />
-                </div>
-                
-                <h4>My Skills</h4>
-                <div>
-                    <textarea 
+                />
+            </div>
+
+            <div className="form-row-textarea">
+                <label htmlFor="writerSkills">My Skills:</label>
+                <textarea 
+                    id="writerSkills"
                     name="writerSkills"
                     value={writerInfo?.writerSkills || ''}
                     onChange={handleProfileChange}
-                    />
-                </div>
-
-                <div>
-                    <button 
-                    type="submit"
-                    className="editProfile-saveBtn"
-                    onClick={handleSaveProfile}
-                    >Save Profile</button>
-                </div>
+                />
             </div>
+
+            <button 
+                type="submit"
+                className="edit-profile-save-btn"
+                onClick={handleSaveProfile}
+            >Save Profile</button>
         </form>
-    </>
-    )
+    </section>
+);
+
+
 }
 
 // Need to set initial values to "|| '' "for the "value" fields on the form or else they are undefined on initial render 

@@ -1,8 +1,6 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/ApplicationViews.jsx
 import { Route, Routes, Outlet } from "react-router-dom";
-import { NavBar } from './Nav/navBar.jsx';
 import { useEffect, useState } from "react";
-import { Welcome } from "./welcome/welcome.jsx";
 import { WriterProfile } from "./WriterProfile/WP_Profile.jsx";
 import { CreateNewArticle } from "./Create/NewArticle.jsx";
 import { WriterProfileMyArticles } from "./WriterProfile/WP_MyArticles.jsx";
@@ -10,6 +8,11 @@ import { WriterProfileAbout } from "./WriterProfile/WP_About.jsx";
 import { EditArticle } from "./Edit/EditArticle.jsx";
 import { ViewWriterArticle } from "./View/viewArticle.jsx";
 import {EditProfile} from "./Edit/EditProfile.jsx";
+import { WritersProfileCard } from "./WriterProfile/WP_ProfileHeader.jsx";
+import { BurgerMenu } from "./Nav/burger.jsx";
+import { BShomePage } from "./HomePage/home.jsx";
+import { BlogHome } from "./Blog/blogHome.jsx";
+
 
 
 
@@ -29,11 +32,11 @@ export const ApplicationViews = () => {
       <Routes>
         <Route path="/" element={
           <>
-            <NavBar currentUser={currentUser} />
+            <BurgerMenu currentUser={currentUser} />
             <Outlet />
           </>
         }>
-          <Route index element={<Welcome />} />
+          <Route index element={<BShomePage />} />
           <Route path={`/profile/${currentUser.id}`} element={<WriterProfile currentUser={currentUser}/>} />
           <Route path={`/profile/${currentUser.id}/new-article`} element={<CreateNewArticle currentUser={currentUser} />} />
           <Route path={`/my-articles/${currentUser.id}`} element={<WriterProfileMyArticles currentUser={currentUser}/>} />
@@ -41,6 +44,8 @@ export const ApplicationViews = () => {
           <Route path={`/my-articles/${currentUser.id}/edit-article/:articleId`} element={<EditArticle currentUser={currentUser}/>} />
           <Route path={`/my-articles/${currentUser.id}/view-article/:articleId`} element={<ViewWriterArticle currentUser={currentUser}/>} />
           <Route path={`/about/edit-profile/${currentUser.id}`} element={<EditProfile currentUser={currentUser}/>} />
+          <Route path="/random" element={<WritersProfileCard currentUser={currentUser}/>} />
+          <Route path={`/blog-home`} element={<BlogHome currentUser={currentUser} />} />
           
           
           

@@ -4,7 +4,7 @@
 
 .container-login > section > a {
   text-decoration: underline;
-  color: var(--secondary);
+  color: black;
 }
 
 .form-login {
@@ -15,11 +15,13 @@
 .form-login > h1 {
   font-size: 2.5rem;
   text-align: center;
+  color: black;
 }
 
 .form-login > h2 {
   text-align: center;
   font-size: 1.5rem;
+  color: black;
 }
 
 .form-login > fieldset > input[type="email"] {
@@ -66,6 +68,7 @@ fieldset {
   margin-right: 1rem;
   display: flex;
   flex-direction: column;
+  color: black;
 }
 
 .form-btn {
