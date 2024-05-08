@@ -3,6 +3,10 @@
     background-color: #181818;
 }
 
+p, h2 {
+    color: black;
+}
+
 /* Container for the articles */
 .articles-container {
     display: grid; /* Uses CSS Grid layout for placing child elements */
