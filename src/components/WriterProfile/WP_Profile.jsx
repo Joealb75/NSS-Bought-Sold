@@ -52,6 +52,8 @@ export const WriterProfile = ({ currentUser }) => {
           
           <div className="latest-articles-scroll">
             {latestArticles.map((article) => (
+            <>
+              <Link to={`/blog-home/${article.id}/view-article/${article.title}`}>
               <div className="latest-article-card" key={article.id}>
                 <div className="latest-article-image">
                   <img src={article.image} alt={article.title} />
@@ -61,6 +63,8 @@ export const WriterProfile = ({ currentUser }) => {
                   <p>{new Date(article.dateUploaded).toLocaleDateString()}</p>
                 </div>
               </div>
+              </Link>
+            </>
             ))}
           </div>
         </div>

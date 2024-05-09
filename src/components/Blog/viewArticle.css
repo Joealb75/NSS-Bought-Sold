@@ -1,0 +1,46 @@
+/* Style for the main section containing the article */
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style for the article image */
+  .article-image {
+    width: 100%;
+    max-height: 400px; /* Adjust as needed */
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the article title */
+  .article-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  /* Style for the article content */
+  .article-content {
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  /* Style for the author section */
+  .author-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Style for the author image */
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  /* Style for the author name */
+  .author-name {
+    font-size: 18px;
+  }
+  
