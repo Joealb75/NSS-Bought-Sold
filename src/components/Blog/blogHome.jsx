@@ -1,42 +1,48 @@
-
 import { useEffect, useState } from "react";
+import { getAllArticles } from "../../services/articleService.js"; 
 import { getArticlesByCategoryId } from "../../services/categoriesService.js";
-import { getAllArticles } from "../../services/articleService.js";
 import { useParams, Link } from "react-router-dom";
 import { BlogToolBar } from "../Nav/BlogToolBar.jsx";
-import "./blogHome.css";
+import "./blogHome.css"; // Ensure this imports the correct CSS file
+import BS from "/../NSS-Bought-Sold/src/assets/BSPlaceHolder.png"
+
 
 export const BlogHome = () => {
     const [articles, setArticles] = useState([]);
-    const { id } = useParams(); // 'name' should be 'id' or 'categoryId' based on URL param naming
+    const { id } = useParams(); // Ensure this matches the route parameter
 
     useEffect(() => {
         if (id && id !== 'all') {
-            // Fetch articles by categoryId obtained from URL params
-            getArticlesByCategoryId(id).then(setArticles); // Correctly using the imported function
+            getArticlesByCategoryId(id).then(setArticles);
         } else {
-            // Fetch all articles if 'View All' or no specific category is selected
             getAllArticles().then(setArticles);
         }
     }, [id]);
 
     return (
         <>
+            <img src={BS}></img>
             <BlogToolBar />
-            <section>
+            <div>
+                
+            </div>
+            <div className="articles-container"> {/* Use articles-container for the grid layout */}
                 {articles.map((article) => (
                     <div key={article.id} className="article">
-                        <Link to={`/blog-home/${article.id}/view-article/${article.title}`}>
+                        <Link to={`/blog-home/${article.id}/view-article/${article.title}`} className="link">
                             <div className="article-image">
                                 <img src={article.image} alt={article.title} />
-                                <h3>{article.title}</h3>
+                            </div>
+                            <div className="article-title">
+                                <h3>{article.title}</h3> {/* Moved title into separate div for styling */}
                             </div>
                         </Link>
                     </div>
                 ))}
-            </section>
+            </div>
         </>
     );
 };
+
 
 

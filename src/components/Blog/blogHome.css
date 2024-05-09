@@ -1,2 +1,63 @@
+/* blogHome.css */
+
+/* Resets for p and h2 to ensure they don't inherit unwanted styles */
+p, h2 {
+    color: #333; /* Dark gray color for text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the articles uses CSS Grid layout for placing child elements */
+.articles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
+    gap: 20px; /* Sets a gap of 20px between grid items */
+    padding: 20px; /* Adds 20px padding around the container */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Centers the container horizontally */
+}
+
+/* Styles for each article card */
+.article {
+    background-color: #ffffff; /* White background color for each article */
+    border: 1px solid #ddd; /* Light gray border around each article */
+    border-radius: 8px; /* Rounded corners for the card */
+    overflow: hidden; /* Ensures that no child elements spill outside the article boundaries */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow beneath the article */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for shadow effects on hover */
+}
+
+.article:hover {
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2); /* Darker and larger shadow on hover for 3D 'lift' effect */
+}
+
+/* Styling for images within articles */
+.article-image img {
+    width: 100%; /* Full width of the container */
+    height: 180px; /* Fixed height for images */
+    object-fit: cover; /* Ensures images cover the area without being stretched or squashed */
+    border-top-left-radius: 8px; /* Rounded top-left corner of the image */
+    border-top-right-radius: 8px; /* Rounded top-right corner of the image */
+}
+
+/* Styling for article titles */
+.article-title h3 {
+    font-size: 18px; /* Reasonable font size for titles */
+    margin: 16px; /* Margin around the title for padding */
+    color: #333; /* Dark gray color matching other texts */
+}
+
+/* Ensures links within articles have no underline and color inherits from parent */
+.link {
+    text-decoration: none; /* No underline for links */
+    color: inherit; /* Inherits color from parent elements */
+}
+
+/* Optional: add responsive design adjustments */
+@media (max-width: 768px) {
+    .articles-container {
+        grid-template-columns: 1fr; /* Stacks articles in a single column on smaller screens */
+    }
+}
 
 

@@ -1,4 +1,5 @@
 // import homeImage from "/../NSS-Bought-Sold/src/assets/NashvilleBatman.jpg"
+import { Link } from "react-router-dom";
 import "./home.css"
 
 export const BShomePage = () => {
@@ -12,7 +13,11 @@ export const BShomePage = () => {
                     <p className="home-text">PSstt..we DO NOT sell your data</p>
 
                     <button>Featured Articles</button>
-                    <button>Blog</button>
+
+                    <Link to={"/blog-home"}>
+                        <button>Blog</button>
+                    </Link>
+                    
                 </div>
                 <div className="image-section"></div>
             </div>
