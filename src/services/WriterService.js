@@ -15,3 +15,4 @@ export const SubmitWriterInfo = (editProfile, writerId) =>{
         body: JSON.stringify(editProfile),
     }
 )}
+

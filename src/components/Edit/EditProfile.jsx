@@ -3,7 +3,7 @@ import "./EditProfile.css"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getWriterInfoByUserId, SubmitWriterInfo } from "../../services/writerService.js";
-import {  SubmitUserInfo } from "../../services/userService.js";
+import {  SubmitUserInfo } from "../../services/UserService.js";
 
 
 export const EditProfile = ( {currentUser} ) =>{

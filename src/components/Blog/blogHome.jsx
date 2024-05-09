@@ -1,48 +1,46 @@
 import { useEffect, useState } from "react"
 import { getAllArticles } from "../../services/articleService.js"
-import { Link } from "react-router-dom"
-
-
+import { Link, useParams, useLocation } from "react-router-dom"
+import { BlogToolBar } from "../Nav/BlogToolBar.jsx"
+import "./blogHome.css"
 
 export const BlogHome = () => {
+    const [allArticles, setAllArticles] = useState([]);
+    const [filteredArticles, setFilteredArticles] = useState([]);
+    const { category } = useParams(); // This assumes you're using URL params to track category
+    const location = useLocation();
 
-    const [allArticles, setAllArticles] = useState([])
+    useEffect(() => {
+        getAllArticles().then((data) => {
+            setAllArticles(data);
+            setFilteredArticles(data); // Initialize with all articles
+        });
+    }, []);
 
-    useEffect(() =>{
-        getAllArticles().then((data) =>{
-            setAllArticles(data)
-        })
-    }, [])
-
+    useEffect(() => {
+        if (location.pathname.includes('View All')) {
+            setFilteredArticles(allArticles);
+        } else {
+            const filtered = allArticles.filter(article => article.categoryName === category);
+            setFilteredArticles(filtered);
+        }
+    }, [category, allArticles, location.pathname]);
 
     return (
         <>
-            <section className="">
-
-            </section>
-                {/* Announcement / picture / article */}
-
+            <BlogToolBar />
             <section>
-                {/* tool bar to filter articles by category  */}
-            </section>
-
-            <section>
-                {allArticles.map((articleObj) =>{
-                    console.log(articleObj)
-                    return(
-                        <>
-                            <div className="article">
-                                <Link to={`/blog-home/${articleObj.id}/view-article/${articleObj.title}`}>
-                                <div className="article-image">
-                                    <img src={articleObj.image} alt={articleObj.title} />
-                                    <h3>{articleObj.title}</h3>
-                                </div>
-                                </Link>
+                {filteredArticles.map((articleObj) => (
+                    <div key={articleObj.id} className="article">
+                        <Link to={`/blog-home/${articleObj.id}/view-article/${articleObj.title}`}>
+                            <div className="article-image">
+                                <img src={articleObj.image} alt={articleObj.title} />
+                                <h3>{articleObj.title}</h3>
                             </div>
-                        </>
-                    )
-                })}
+                        </Link>
+                    </div>
+                ))}
             </section>
         </>
-    )
+    );
 }

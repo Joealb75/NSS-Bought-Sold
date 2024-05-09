@@ -48,7 +48,7 @@ export const ApplicationViews = () => {
           <Route path="/random" element={<WritersProfileCard currentUser={currentUser}/>} />
           <Route path={`/blog-home`} element={<BlogHome currentUser={currentUser} />} />
           <Route path={`/blog-home/:articleId/view-article/:title`} element={<ViewArticle currentUser={currentUser}/>} />
-          
+          <Route path={`/blog-home/articleCategories/:name`} element={<BlogHome/>} />
           
           
 
