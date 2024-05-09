@@ -1,41 +1,35 @@
-import { useEffect, useState } from "react"
-import { getAllArticles } from "../../services/articleService.js"
-import { Link, useParams, useLocation } from "react-router-dom"
-import { BlogToolBar } from "../Nav/BlogToolBar.jsx"
-import "./blogHome.css"
+
+import { useEffect, useState } from "react";
+import { getArticlesByCategoryId } from "../../services/categoriesService.js";
+import { getAllArticles } from "../../services/articleService.js";
+import { useParams, Link } from "react-router-dom";
+import { BlogToolBar } from "../Nav/BlogToolBar.jsx";
+import "./blogHome.css";
 
 export const BlogHome = () => {
-    const [allArticles, setAllArticles] = useState([]);
-    const [filteredArticles, setFilteredArticles] = useState([]);
-    const { category } = useParams(); // This assumes you're using URL params to track category
-    const location = useLocation();
+    const [articles, setArticles] = useState([]);
+    const { id } = useParams(); // 'name' should be 'id' or 'categoryId' based on URL param naming
 
     useEffect(() => {
-        getAllArticles().then((data) => {
-            setAllArticles(data);
-            setFilteredArticles(data); // Initialize with all articles
-        });
-    }, []);
-
-    useEffect(() => {
-        if (location.pathname.includes('View All')) {
-            setFilteredArticles(allArticles);
+        if (id && id !== 'all') {
+            // Fetch articles by categoryId obtained from URL params
+            getArticlesByCategoryId(id).then(setArticles); // Correctly using the imported function
         } else {
-            const filtered = allArticles.filter(article => article.categoryName === category);
-            setFilteredArticles(filtered);
+            // Fetch all articles if 'View All' or no specific category is selected
+            getAllArticles().then(setArticles);
         }
-    }, [category, allArticles, location.pathname]);
+    }, [id]);
 
     return (
         <>
             <BlogToolBar />
             <section>
-                {filteredArticles.map((articleObj) => (
-                    <div key={articleObj.id} className="article">
-                        <Link to={`/blog-home/${articleObj.id}/view-article/${articleObj.title}`}>
+                {articles.map((article) => (
+                    <div key={article.id} className="article">
+                        <Link to={`/blog-home/${article.id}/view-article/${article.title}`}>
                             <div className="article-image">
-                                <img src={articleObj.image} alt={articleObj.title} />
-                                <h3>{articleObj.title}</h3>
+                                <img src={article.image} alt={article.title} />
+                                <h3>{article.title}</h3>
                             </div>
                         </Link>
                     </div>
@@ -43,4 +37,6 @@ export const BlogHome = () => {
             </section>
         </>
     );
-}
+};
+
+
