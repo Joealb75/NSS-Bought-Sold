@@ -18,7 +18,7 @@ export const BurgerMenu = ({ currentUser }) => {
                 <div className="menu-content">
                     <a href={`/profile/${currentUser.id}`} className="menu-link">My Profile</a>
                     <a href="/blog-home" className="menu-link">Blog</a>
-                    <a href="/" className="menu-link">Writers</a>
+                    <a href="/allWriters" className="menu-link">Writers</a>
                     {/* Logout Link */}
                     {localStorage.getItem("B&S_User") && (
                         <Link

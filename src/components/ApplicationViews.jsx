@@ -13,6 +13,7 @@ import { BurgerMenu } from "./Nav/burger.jsx";
 import { BShomePage } from "./HomePage/home.jsx";
 import { BlogHome } from "./Blog/blogHome.jsx";
 import { ViewArticle } from "./Blog/viewArticle.jsx";
+import { WritersList } from "../DO NOT THINK ABOUT/writersList.jsx";
 
 
 
