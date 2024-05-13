@@ -17,6 +17,7 @@ export const BurgerMenu = ({ currentUser }) => {
             {isOpen && (
                 <div className="menu-content">
                     <a href={`/profile/${currentUser.id}`} className="menu-link">My Profile</a>
+                    <a href='/' className='menu-link'>Home</a>
                     <a href="/blog-home" className="menu-link">Blog</a>
                     <a href="/allWriters" className="menu-link">Writers</a>
                     {/* Logout Link */}

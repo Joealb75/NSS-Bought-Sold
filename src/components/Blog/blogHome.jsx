@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import { BlogToolBar } from "../Nav/BlogToolBar.jsx";
 import "./blogHome.css"; // Ensure this imports the correct CSS file
 import BS from "/../NSS-Bought-Sold/src/assets/BSPlaceHolder.png"
+import { BurgerMenu } from "../Nav/burger.jsx";
 
 
 export const BlogHome = () => {
@@ -21,6 +22,7 @@ export const BlogHome = () => {
 
     return (
         <>
+            <BurgerMenu />
             <img src={BS}></img>
             <BlogToolBar />
             <div>

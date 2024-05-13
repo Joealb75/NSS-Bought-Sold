@@ -42,7 +42,7 @@ export const WriterProfileAbout = ({currentUser}) => {
                 </section>
             </section>
             <section>
-                <div>__  __  __  __</div>
+                
             </section>
         </div>
         </>

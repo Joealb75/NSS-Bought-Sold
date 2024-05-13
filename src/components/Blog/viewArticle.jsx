@@ -43,7 +43,7 @@ export const ViewArticle = ({currentUser}) => {
       </section>
 
       <section>
-        <CommentSection currentUser={currentUser}/>
+        <CommentSection currentUser={currentUser} articleId={articleId}/>
       </section>
     </div>
     </>
