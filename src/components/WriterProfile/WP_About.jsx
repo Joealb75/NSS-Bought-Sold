@@ -41,9 +41,6 @@ export const WriterProfileAbout = ({currentUser}) => {
                     </div>
                 </section>
             </section>
-            <section>
-                
-            </section>
         </div>
         </>
     )

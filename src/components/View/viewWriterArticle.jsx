@@ -28,7 +28,6 @@ export const ViewWriterArticle = ( {currentUser} ) =>{
 
     return(
         <>
-            
             <section>
                 <div>
                     <img src={writerArticle.image}/>

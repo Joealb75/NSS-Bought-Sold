@@ -43,8 +43,6 @@ export const WriterProfile = ({ currentUser }) => {
         <section className="">
           <div className="">Featured Article Space</div>
         </section>
-
-
         
         <div className="latest-articles-divider"></div>
         <h2 className="latest-articles-heading">Latest Articles</h2>

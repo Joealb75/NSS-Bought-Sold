@@ -28,7 +28,7 @@ export const ApplicationViews = ({currentUser}) => {
             <Outlet />
           </>
         }>
-          <Route index element={<BShomePage />} />
+          <Route index element={<BShomePage currentUser={currentUser}/>} />
           <Route path={`/profile/${currentUser.id}`} element={<WriterProfile currentUser={currentUser}/>} />
           <Route path={`/profile/${currentUser.id}/new-article`} element={<CreateNewArticle currentUser={currentUser} />} />
           <Route path={`/my-articles/${currentUser.id}`} element={<WriterProfileMyArticles currentUser={currentUser}/>} />

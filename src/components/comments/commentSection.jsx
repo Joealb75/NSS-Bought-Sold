@@ -56,14 +56,9 @@ export const CommentSection = ({ articleId, currentUser }) => {
                     
                     <div className="comment-content">
                         <p className="comment-text">{comment.text}</p>
-
-                    
-
                     </div>
 
                 </div>
-
-                
             ))}
             <textarea
                 className="comment-input"

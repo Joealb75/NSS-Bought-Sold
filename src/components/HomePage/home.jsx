@@ -1,10 +1,12 @@
-// import homeImage from "/../NSS-Bought-Sold/src/assets/NashvilleBatman.jpg"
 import { Link } from "react-router-dom";
 import "./home.css"
+import { BurgerMenu } from "../Nav/burger.jsx";
 
-export const BShomePage = () => {
+
+export const BShomePage = ({currentUser}) => {
     return(
         <>
+        <BurgerMenu currentUser={currentUser}/>
         <div className="bs-home-page">
             <div className="content-container">
                 <div className="text-section">

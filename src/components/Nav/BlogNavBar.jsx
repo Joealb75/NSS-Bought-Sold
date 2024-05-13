@@ -33,8 +33,7 @@ export const BlogNavBar = () => {
         <a href="/blog-home">Blog</a>
         <a href="/pricing">Pricing</a>
         {LoggedIn ? (
-          <button onClick={handleLogout} className="blog-navbar-logout-button">Log Out</button>
-        ) : (
+          <button onClick={handleLogout} className="blog-navbar-logout-button">Log Out</button>) : (
           <>
             <a href="/login">Log In</a>
             <a href="/register" className="blog-navbar-register-button">Sign Up</a>

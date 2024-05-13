@@ -8,6 +8,7 @@ import { Login } from "./components/Login_User/auth/Login.jsx";
 import { Register } from "./components/Login_User/auth/Register.jsx";
 import { BlogHome } from "./components/Blog/blogHome.jsx";
 import { ViewArticle } from "./components/Blog/viewArticle.jsx";
+import { BShomePage } from "./components/HomePage/home.jsx";
 
 
 export const App = () => {
@@ -24,7 +25,8 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route path={`/blog-home`} element={<BlogHome  />} />
+        <Route path="/" element={<BShomePage currentUser={currentUser}/>} />
+        <Route path={`/blog-home`} element={<BlogHome currentUser={currentUser}/>} />
         <Route path={`/blog-home/:articleId/view-article/:title`} element={<ViewArticle currentUser={currentUser}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

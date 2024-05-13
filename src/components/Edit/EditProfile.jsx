@@ -43,7 +43,7 @@ export const EditProfile = ( {currentUser} ) =>{
         // put the nested user object and writer info into separate variables using the spread operator 
 
         const writerInfoWithoutUser = { ...writerInfoData, userId: writerInfo.user.id }; 
-        // replace the nested user object with a new property userId
+        // replaced the nested user object with a new property userId
         SubmitWriterInfo(writerInfoWithoutUser, writerInfoWithoutUser.id).then((updatedWriterInfo) =>{
             console.log("writer info with out user", writerInfoWithoutUser)
             
@@ -54,7 +54,7 @@ export const EditProfile = ( {currentUser} ) =>{
         navigate(`/about/${currentUser.id}`)
     }
 
-// ---------------------------------------------------- DOM
+
 return (
     <section className="edit-profile">
         <h1 className="edit-profile-heading">Edit Profile</h1>
