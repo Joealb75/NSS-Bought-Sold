@@ -2,14 +2,13 @@
 import { Link } from "react-router-dom";
 import "./home.css"
 
-
 export const BShomePage = () => {
     return(
         <>
-        
         <div className="bs-home-page">
             <div className="content-container">
                 <div className="text-section">
+                
                     <h1 className="home-text">Bought & Sold</h1>
                     <h2 className="home-text-h2">Real Estate News</h2>
 

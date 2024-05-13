@@ -3,14 +3,14 @@ import { getAllArticles } from "../../services/articleService.js";
 import { getArticlesByCategoryId } from "../../services/categoriesService.js";
 import { useParams, Link } from "react-router-dom";
 import { BlogToolBar } from "../Nav/BlogToolBar.jsx";
-import "./blogHome.css"; // Ensure this imports the correct CSS file
+import "./blogHome.css"; 
 import BS from "/../NSS-Bought-Sold/src/assets/BSPlaceHolder.png"
-import { BurgerMenu } from "../Nav/burger.jsx";
+import { BlogNavBar } from "../Nav/BlogNavBar.jsx";
 
 
 export const BlogHome = () => {
     const [articles, setArticles] = useState([]);
-    const { id } = useParams(); // Ensure this matches the route parameter
+    const { id } = useParams(); 
 
     useEffect(() => {
         if (id && id !== 'all') {
@@ -22,13 +22,13 @@ export const BlogHome = () => {
 
     return (
         <>
-            <BurgerMenu />
+            <BlogNavBar />
             <img src={BS}></img>
             <BlogToolBar />
             <div>
                 
             </div>
-            <div className="articles-container"> {/* Use articles-container for the grid layout */}
+            <div className="articles-container"> 
                 {articles.map((article) => (
                     <div key={article.id} className="article">
                         
@@ -37,7 +37,7 @@ export const BlogHome = () => {
                                 <img src={article.image} alt={article.title} />
                             </div>
                             <div className="article-title">
-                                <h3>{article.title}</h3> {/* Moved title into separate div for styling */}
+                                <h3>{article.title}</h3> 
                             </div>
                         </Link>
                     </div>

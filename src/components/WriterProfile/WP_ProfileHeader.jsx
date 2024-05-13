@@ -28,4 +28,3 @@ export const WritersProfileCard = ({currentUser}) => {
 };
 
 
-// {writer.user?.userImg

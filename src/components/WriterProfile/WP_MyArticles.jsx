@@ -56,4 +56,3 @@ export const WriterProfileMyArticles = ({ currentUser }) => {
   );
 };
 
-// `/blog-home/${article.id}/view-article/${article.title}`

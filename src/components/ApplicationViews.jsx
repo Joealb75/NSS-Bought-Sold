@@ -18,17 +18,7 @@ import { ViewArticle } from "./Blog/viewArticle.jsx";
 
 
 
-export const ApplicationViews = () => {
-
-  
-  const [currentUser, setCurrentUser] = useState({})
-
-  useEffect(() => {
-    const userFromStorage = JSON.parse(localStorage.getItem("B&S_User"));
-    if (userFromStorage && userFromStorage.id) {
-      setCurrentUser({ id: userFromStorage.id }); // Ensure currentUser is always an object with an id property
-    }
-  }, []);
+export const ApplicationViews = ({currentUser}) => {
   return (
     <>
       <Routes>
