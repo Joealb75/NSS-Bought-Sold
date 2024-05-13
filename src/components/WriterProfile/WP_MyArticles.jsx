@@ -27,11 +27,13 @@ export const WriterProfileMyArticles = ({ currentUser }) => {
             return (
               <div key={articleObj.id} className="article">
                 <Link
-                  to={`/my-articles/${currentUser.id}/view-article/${articleObj.id}`}
-                  className="link" // Apply link styling
+                  to={`/blog-home/${articleObj.id}/view-article/${articleObj.title}`}
+                  className="link" 
                 >
                   <div className="article-image">
-                    <img src={articleObj.image} alt={articleObj.title} />
+                    <img 
+                    src={articleObj.image} 
+                    alt={articleObj.title} />
                   </div>
                   <div className="article-title">
                     <h3>{articleObj.title}</h3>
@@ -40,7 +42,7 @@ export const WriterProfileMyArticles = ({ currentUser }) => {
                 <div className="article-edit">
                   <Link
                     to={`/my-articles/${currentUser.id}/edit-article/${articleObj.id}`}
-                    className="link" // Apply link styling
+                    className="link" 
                   >
                     <button className="btn-2">Edit</button>
                   </Link>
@@ -54,3 +56,4 @@ export const WriterProfileMyArticles = ({ currentUser }) => {
   );
 };
 
+// `/blog-home/${article.id}/view-article/${article.title}`

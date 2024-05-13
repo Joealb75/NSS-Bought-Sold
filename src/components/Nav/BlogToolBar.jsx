@@ -9,7 +9,7 @@ export const BlogToolBar = () =>{
 
     useEffect(() => {
         getAllCategories().then((data) => {
-            // default 'View All' category
+           
             setCategories([{id: 'all', name: 'View All'}, ...data]);
         });
     }, []);

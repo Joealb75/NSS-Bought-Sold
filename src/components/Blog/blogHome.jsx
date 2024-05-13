@@ -29,6 +29,7 @@ export const BlogHome = () => {
             <div className="articles-container"> {/* Use articles-container for the grid layout */}
                 {articles.map((article) => (
                     <div key={article.id} className="article">
+                        
                         <Link to={`/blog-home/${article.id}/view-article/${article.title}`} className="link">
                             <div className="article-image">
                                 <img src={article.image} alt={article.title} />
