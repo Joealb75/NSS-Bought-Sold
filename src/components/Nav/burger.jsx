@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Make sure to import Link and useNavigate
+import { useNavigate, Link } from 'react-router-dom'; 
 import "./burger.css";
 import MenuIcon from '/../NSS-Bought-Sold/src/assets/burger-menu.svg';
 
 export const BurgerMenu = ({ currentUser }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate(); // Setup navigate
+    const navigate = useNavigate(); 
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -17,9 +17,10 @@ export const BurgerMenu = ({ currentUser }) => {
             {isOpen && (
                 <div className="menu-content">
                     <a href={`/profile/${currentUser.id}`} className="menu-link">My Profile</a>
+                    <a href='/' className='menu-link'>Home</a>
                     <a href="/blog-home" className="menu-link">Blog</a>
-                    <a href="/" className="menu-link">Writers</a>
-                    {/* Logout Link */}
+                    <a href="/allWriters" className="menu-link">Writers</a>
+                    
                     {localStorage.getItem("B&S_User") && (
                         <Link
                             className="menu-link"

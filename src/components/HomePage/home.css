@@ -1,14 +1,28 @@
 .bs-home-page .content-container {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Adjust the ratio as needed */
+    grid-template-columns: 1fr 2fr; 
     height: 100vh;
     width: 100%;
     
 }
 
-.text-section h2 p {
+.text-section {
     padding: 20px;
-     /* Assuming a semi-transparent background for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    
+}
+
+.email-signUp {
+    margin-right: 100px;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.home-text-h2 {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,6 +34,14 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.home-text-p {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
 }
 
 .home-text {
@@ -36,5 +58,8 @@ div.bs-home-page {
 }
 
 
-
+.home-btn {
+    margin-top: 50px;
+    padding: 15px 50px 15px 50px;
+}
 

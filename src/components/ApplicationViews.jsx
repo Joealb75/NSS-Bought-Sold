@@ -6,27 +6,19 @@ import { CreateNewArticle } from "./Create/NewArticle.jsx";
 import { WriterProfileMyArticles } from "./WriterProfile/WP_MyArticles.jsx";
 import { WriterProfileAbout } from "./WriterProfile/WP_About.jsx";
 import { EditArticle } from "./Edit/EditArticle.jsx";
-import { ViewWriterArticle } from "./View/viewArticle.jsx";
+import { ViewWriterArticle } from "./View/viewWriterArticle.jsx";
 import {EditProfile} from "./Edit/EditProfile.jsx";
 import { WritersProfileCard } from "./WriterProfile/WP_ProfileHeader.jsx";
 import { BurgerMenu } from "./Nav/burger.jsx";
 import { BShomePage } from "./HomePage/home.jsx";
 import { BlogHome } from "./Blog/blogHome.jsx";
+import { ViewArticle } from "./Blog/viewArticle.jsx";
 
 
 
 
-export const ApplicationViews = () => {
 
-  
-  const [currentUser, setCurrentUser] = useState({})
-
-  useEffect(() => {
-    const userFromStorage = JSON.parse(localStorage.getItem("B&S_User"));
-    if (userFromStorage && userFromStorage.id) {
-      setCurrentUser({ id: userFromStorage.id }); // Ensure currentUser is always an object with an id property
-    }
-  }, []);
+export const ApplicationViews = ({currentUser}) => {
   return (
     <>
       <Routes>
@@ -36,7 +28,7 @@ export const ApplicationViews = () => {
             <Outlet />
           </>
         }>
-          <Route index element={<BShomePage />} />
+          <Route index element={<BShomePage currentUser={currentUser}/>} />
           <Route path={`/profile/${currentUser.id}`} element={<WriterProfile currentUser={currentUser}/>} />
           <Route path={`/profile/${currentUser.id}/new-article`} element={<CreateNewArticle currentUser={currentUser} />} />
           <Route path={`/my-articles/${currentUser.id}`} element={<WriterProfileMyArticles currentUser={currentUser}/>} />
@@ -46,7 +38,8 @@ export const ApplicationViews = () => {
           <Route path={`/about/edit-profile/${currentUser.id}`} element={<EditProfile currentUser={currentUser}/>} />
           <Route path="/random" element={<WritersProfileCard currentUser={currentUser}/>} />
           <Route path={`/blog-home`} element={<BlogHome currentUser={currentUser} />} />
-          
+          <Route path={`/blog-home/:articleId/view-article/:title`} element={<ViewArticle currentUser={currentUser}/>} />
+          <Route path={`/blog-home/articleCategories/:id`} element={<BlogHome />} />
           
           
 

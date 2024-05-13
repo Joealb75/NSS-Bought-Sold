@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom"
 import { getArticleById } from "../../services/articleService.js"
 import { getWriterInfoByUserId } from "../../services/writerService.js"
 
+
 export const ViewWriterArticle = ( {currentUser} ) =>{
     
     const [writerArticle, setWriterArticle ] = useState({})

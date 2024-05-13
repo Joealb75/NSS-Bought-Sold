@@ -1,134 +1,207 @@
 /* FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writerProfile.css */
+
 .color {
     background-color: #181818;
+    height: 100vh;
 }
 
-/* Container for the articles */
+p, h2 {
+    color: black;
+}
+
 .articles-container {
-    display: grid; /* Uses CSS Grid layout for placing child elements */
-    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
-    gap: 20px; /* Sets a gap of 20px between grid items */
-    padding: 20px; /* Adds 20px padding around the container */
-    max-width: 1200px; /* Maximum width of the container */
-    margin: 0 auto; /* Centers the container horizontally */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    background-color: #181818
+    
 }
 
 .article {
-    background-color: #ffffff; /* Sets a white background color for each article */
-    border: 1px solid #ddd; /* Adds a light grey border around each article */
-    border-radius: 8px; /* Rounds the corners of the border */
-    overflow: hidden; /* Prevents child elements from overflowing the article boundaries */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow beneath the article */
-    transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the box-shadow effect on hover */
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    transition: box-shadow 0.3s ease-in-out; 
 }
 
 .article:hover {
-    box-shadow: 0 6px 10px rgba(0,0,0,0.2); /* Increases the shadow's size and darkness on hover */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2); 
 }
 
 .article-image img {
-    width: 100%; /* Ensures the image spans the full width of its container */
-    height: 180px; /* Sets a fixed height for images */
-    object-fit: cover; /* Ensures the image covers the designated area without distorting its aspect ratio */
-    border-top-left-radius: 8px; /* Rounds the top left corner of the image */
-    border-top-right-radius: 8px; /* Rounds the top right corner of the image */
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px; 
 }
 
 .article-title h3 {
-    font-size: 18px; /* Sets the font size for article titles */
-    margin: 16px; /* Adds margin around the title for spacing */
-    color: #333; /* Sets the text color for titles */
+    font-size: 18px; 
+    margin: 16px; 
+    color: #333; 
 }
 
 .article-edit {
-    text-align: center; /* Centers the contents of the edit button container */
-    padding: 12px; /* Adds padding inside the edit button container for spacing */
+    text-align: center; 
+    padding: 12px; 
 }
 
+.btn-2 {
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: background-color 0.3s ease-in-out; 
+}
+
+
 .article-edit button {
-    background-color: #007bff; /* Sets a bright blue background color for the button */
-    color: #ffffff; /* Sets the text color to white for contrast */
-    border: none; /* Removes the default border of the button */
-    padding: 10px 20px; /* Adds padding inside the button to increase clickable area */
-    font-size: 16px; /* Sets the font size of the button text */
-    cursor: pointer; /* Changes the mouse cursor to a pointer when hovering over the button */
-    border-radius: 4px; /* Rounds the corners of the button */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change on hover */
+    background-color: #007bff; 
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: background-color 0.3s ease-in-out; 
 }
 
 .article-edit button:hover {
-    background-color: #0056b3; /* Darkens the button's background color on hover */
+    background-color: #0056b3; 
 }
 
 .link {
-    text-decoration: none; /* Removes underline from links */
-    color: inherit; /* Inherits color from parent elements for consistency */
+    text-decoration: none; 
+    color: inherit; 
 }
 
-/* WritersProfileCard styles, if needed */
 .writers-profile-card {
-    background-color: #ffffff; /* Sets a white background for the profile card */
-    padding: 20px; /* Adds padding inside the profile card for spacing */
-    border-radius: 8px; /* Rounds the corners of the profile card */
-    margin-bottom: 20px; /* Adds space below the profile card */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Adds a subtle shadow beneath the profile card */
+    background-color: #ffffff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
 
+/* ________________LATEST ARTICLE CSS________________ */
+
+.latest-articles-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.latest-article-card {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.latest-article-card:hover {
+    box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+
+.latest-article-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.latest-article-title h3 {
+    font-size: 18px;
+    margin: 16px;
+    color: #333;
+}
+
+.latest-articles-heading {
+    font-size: 28px;
+    color: white;
+    padding-left: 50px;
+    text-align: left;
+    width: 100%;
+}
+
+.latest-articles-divider {
+    height: 3px;
+    background-color: #EB5E28;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.latest-articles-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    white-space: nowrap;
+}
 
 /* ________________HEADER CSS________________ */
-
-
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+    box-sizing: border-box; 
 }
 
-/* Main header container */
 .header {
-    background-color: #181818; /* Dark blue background color */
-    color: #FFFFFF; /* White text color for contrast */
-    padding: 10px 20px; /* Padding around the content within the header */
-    display: flex; /* Uses flexbox for layout */
-    align-items: center; /* Vertically centers the items in the header */
+    background-color: #181818; 
+    color: #FFFFFF; 
+    padding: 10px 20px; 
+    display: flex; 
+    align-items: center; 
 }
 
-/* Container for the content in the header */
 .header-content {
-    display: flex; /* Uses flexbox to align image and text side by side */
-    align-items: center; /* Centers the items vertically */
-    max-width: 1200px; /* Maximum width of the content */
-    margin: 0 auto; /* Centers the content horizontally */
-    width: 100%; /* Full width */
+    display: flex; 
+    align-items: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    width: 100%; 
 }
 
-/* Profile image styling */
 .profile-image {
-    border-radius: 50%; /* Makes the image circular */
-    width: 150px; /* Fixed width for the image */
-    height: 150px; /* Fixed height for the image */
-    margin-right: 20px; /* Adds space between the image and the text */
+    border-radius: 50%; 
+    width: 150px; 
+    height: 150px; 
+    margin-right: 20px; 
     margin-top: 20px;
 }
 
-/* Container for profile name and title */
 .profile-info {
-    display: flex; /* Uses flexbox for layout */
-    flex-direction: column; /* Stacks items vertically */
+    display: flex; 
+    flex-direction: column; 
 }
 
-/* Styling for the profile name */
 .profile-name {
-    font-size: 1.5rem; /* Sets the size of the name */
-    font-weight: bold; /* Makes the name bold */
-    margin-bottom: 5px; /* Adds space below the name */
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-bottom: 5px; 
     color: white;
 }
 
-/* Styling for the profile title */
 .profile-title {
-    font-size: 1rem; /* Sets the size of the title */
-    opacity: 0.8; /* Makes the title slightly transparent for design */
+    font-size: 1rem; 
+    opacity: 0.8; 
     color: white;
 }

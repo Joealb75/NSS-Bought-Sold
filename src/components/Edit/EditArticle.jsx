@@ -18,6 +18,7 @@ export const EditArticle = ({ currentUser }) => {
     articleContent: "",
     categoryId: "",
     image: "",
+    isFeaturedArticle: false,
   });
 
   const [categories, setCategories] = useState([]);

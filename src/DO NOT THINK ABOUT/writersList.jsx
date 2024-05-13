@@ -1,10 +1,11 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/writersList.jsx
 import { useEffect, useState } from "react";
-import { getWriterUsers } from "../services/userService.js";
-import { Link } from "react-router-dom";
-import { WritersProfileCard } from "./WP_ProfileHeader.jsx";
 
-export const WritersList = () => {
+import { Link } from "react-router-dom";
+import { WritersProfileCard } from "../components/WriterProfile/WP_ProfileHeader.jsx";
+import { getWriterUsers } from "../services/UserService.js";
+
+export const WritersList = ({currentUser}) => {
     const [writers, setWriters] = useState([])
   
     useEffect(()=>{

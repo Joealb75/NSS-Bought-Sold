@@ -1,0 +1,57 @@
+.blog-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .blog-navbar-logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .blog-navbar-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .blog-navbar-links a {
+    margin: 0 15px;
+    color: black;
+  }
+
+  .blog-navbar-links a:hover {
+    color: #d38b67; 
+  }
+
+  
+  .blog-navbar-register-button {
+    background-color: #d38b67;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .blog-navbar-register-button:hover {
+    background-color: #c37650;
+  }
+  
+  .blog-navbar-logout-button {
+    background-color: #d38b67;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .blog-navbar-logout-button:hover {
+    background-color: #c37650;
+  }
+  
+  
+  
+  
+  
