@@ -44,3 +44,13 @@ You have made it into my application
 feel free to browse around and when you need to sign in so feel free to use my account `Joe@BoughtAndSold.com`
 
 Any feedback is greatly appreciated. The planning, design and implementation was all part of a 2-wk sprint we did after 3 months. 
+
+### Known Bug - My Profile 
+```
+To replicate the error do the following:
+
+1. Go to the home screen then click the hamburger menu
+2. Click "My Profile" then Sign in once re-directed
+3. Then once signed in click "My Profile" again it will say "Undefined" 
+4. Click the "Go back" arrow next to the URL then click My Profile again and it will render. 
+```
