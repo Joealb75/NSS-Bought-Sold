@@ -1,7 +1,7 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/WriterProfile/WP_ProfileHeader.jsx
 import "./writerProfile.css"
 import { useEffect, useState } from "react";
-import { getWriterInfoByUserId } from "../../services/writerService.js";
+import { getWriterInfoByUserId } from "../../services/WriterService.js";
 
 export const WritersProfileCard = ({currentUser}) => {
   const [writer, setWriters] = useState({});

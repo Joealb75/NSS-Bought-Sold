@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { SubmitNewArticle } from "../../services/articleService.js";
-import { getAllCategories } from "../../services/categoriesService.js";
+import { SubmitNewArticle } from "../../services/ArticleService.js";
+import { getAllCategories } from "../../services/CategoriesService.js";
 import './NewArticle.css'
 
 export const CreateNewArticle = ({ currentUser }) => {

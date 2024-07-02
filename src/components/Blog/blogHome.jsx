@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllArticles } from "../../services/articleService.js"; 
-import { getArticlesByCategoryId } from "../../services/categoriesService.js";
+import { getAllArticles } from "../../services/ArticleService.js"; 
+import { getArticlesByCategoryId } from "../../services/CategoriesService.js";
 import { useParams, Link } from "react-router-dom";
 import { BlogToolBar } from "../Nav/BlogToolBar.jsx";
 import "./blogHome.css"; 

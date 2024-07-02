@@ -1,8 +1,8 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/View/viewArticle.jsx
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { getArticleById } from "../../services/articleService.js"
-import { getWriterInfoByUserId } from "../../services/writerService.js"
+import { getArticleById } from "../../services/ArticleService.js"
+import { getWriterInfoByUserId } from "../../services/WriterService.js"
 
 
 export const ViewWriterArticle = ( {currentUser} ) =>{

@@ -1,6 +1,6 @@
 import "./ToolBar.css";
 import { Link, useLocation } from "react-router-dom";
-import { getAllCategories } from "../../services/categoriesService.js";
+import { getAllCategories } from "../../services/CategoriesService.js";
 import { useEffect, useState } from "react";
 
 export const BlogToolBar = () =>{

@@ -2,12 +2,12 @@
 import "./writerProfile.css";
 import "/../NSS-Bought-Sold/src/App.css";
 import { useEffect, useState } from "react";
-import { getWriterInfoByUserId } from "../../services/writerService.js";
+import { getWriterInfoByUserId } from "../../services/WriterService.js";
 import { Link } from "react-router-dom";
 import { CreateNewArticle } from "../Create/NewArticle.jsx";
 import { ProfileToolBar } from "../Nav/ToolBar.jsx";
 import { WritersProfileCard } from "./WP_ProfileHeader.jsx";
-import { getArticlesByUserId } from "../../services/articleService.js";
+import { getArticlesByUserId } from "../../services/ArticleService.js";
 
 export const WriterProfile = ({ currentUser }) => {
   const [showCreateNewArticle, setShowCreateNewArticle] = useState(false);
