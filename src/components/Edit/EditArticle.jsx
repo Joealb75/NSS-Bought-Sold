@@ -6,8 +6,8 @@ import {
   getArticleById,
   SubmitEditArticle,
   deleteArticle,
-} from "../../services/articleService.js";
-import { getAllCategories } from "../../services/categoriesService.js";
+} from "../../services/ArticleService.js";
+import { getAllCategories } from "../../services/CategoriesService.js";
 
 export const EditArticle = ({ currentUser }) => {
   const navigate = useNavigate();

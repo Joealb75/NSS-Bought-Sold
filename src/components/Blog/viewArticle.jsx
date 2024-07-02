@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { getArticleById } from "../../services/articleService.js";
+import { getArticleById } from "../../services/ArticleService.js";
 import { useEffect, useState } from "react";
-import { getWriterInfoByUserId } from "../../services/writerService.js";
+import { getWriterInfoByUserId } from "../../services/WriterService.js";
 import "./viewArticle.css"; 
 
 import { CommentSection } from "../comments/commentSection.jsx";
