@@ -5,6 +5,13 @@ Bought & Sold is a blog that allows professionals in the Real Estate industry to
 
 Tech Used: JavaScript and React was used to dynamically render components on the site. I used bootstrap CSS to style the site and a local JSON-Server to store and retrieve the necessary data. I also utilized an ERD to visualize the dataflow and Figma to wireframe the design of the site. 
 
+**For the latest version of my app clone the `develop` branch**
+
+## MUST READ
+While this project was created to showcase what I learned during the first 3 months at NSS, I am activly working to improve this project and bring it up to speed with additional features and a proper back-end. 
+
+If you want to view the 2-wk sprint version of this project clone from the `MVP-PLUS-Complete` branch and get the JSON database mention in the install steps. 
+If you want the latest version clone the `develop` branch from the client side and the develop branch in the `Bought-Sold-Django-API` repo.
 
 ## Steps to install
 
@@ -17,6 +24,7 @@ code .
 ```
 
 ### Get the Database 
+*Note:* If you cloned any other branch besides the `MVP-PLUS-Complete` branch you
 ```
 cd JS-B-S-NSS-Capstone
 git clone git@github.com:Joealb75/NSS-B-S-API.git
