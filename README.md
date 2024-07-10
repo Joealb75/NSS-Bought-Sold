@@ -11,7 +11,8 @@ Tech Used: JavaScript and React was used to dynamically render components on the
 While this project was created to showcase what I learned during the first 3 months at NSS, I am activly working to improve this project and bring it up to speed with additional features and a proper back-end. 
 
 If you want to view the 2-wk sprint version of this project clone from the `MVP-PLUS-Complete` branch and get the JSON database mention in the install steps. 
-If you want to see the latest version please contact me for a demo of the site.
+
+- **If you want to see the latest version please contact me for a demo of the site.**
 
 ## Steps to install
 
