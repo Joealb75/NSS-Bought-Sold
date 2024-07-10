@@ -54,23 +54,32 @@ feel free to browse around and when you need to sign in so feel free to use my a
 
 Any feedback is greatly appreciated. The planning, design and implementation was all part of a 2-wk sprint we did after 3 months. 
 
-## Going to be starting revamp of this project to add / update the following:
+## Currently revamping this project to add / update the following:
+#### Currently Working On 
+- [ ] Replace JSON DB with Python & Django backend W/ Sqlite3 DB 
+
 #### Updates
-- [ ] Fix known bug with `MyProfile`
-- [ ] Replace JSON dataBase with Sqlite3 (Python & Django backend) 
+- [ ] Fix known bug with `MyProfile` - Will be fixed with TSQ ↴
 - [ ] Use TanStack Query for state management
 - [ ] Refresh site design 
 #### Additions 
 - [ ] Sign up for Email list 
 - [ ] All Writers View
 - [ ] Add likes / favorites to articles 
-- [ ] Notifications for writers when readers like / comment their post 
+- [ ] Notifications for writers when readers like / comment their post
+- [ ] Analytics for writer Profile / Article Performance 
 - [ ] Article upload W/ Google Docs, Dropbox, System
 - [ ] Writer Application Form Submition
-- [ ] `About Us` page 
-- [ ] **STRETCH:** Add Stripe integration for payments 
+- [ ] `About Us` page
+- [ ] **STRETCH:** Add Stripe integration for payments for experance 
 
-### Known Bug - My Profile 
+#### Completed 
+- [X] Updated ERD
+- [X] Fixtures & Models + DB Seeded W/ Test Data
+- [X] Designed PostMan Collection for B&S with data for easy testing going forward
+- **NOTE** ⤴ `I add to it as new ViewSets & Routes are completed`
+
+#### Known Bug - My Profile 
 ```
 To replicate the error do the following:
 
