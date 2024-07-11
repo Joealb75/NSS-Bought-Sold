@@ -1,6 +1,5 @@
 // FILE PATH: ./NSS-Bought-Sold/src/components/ApplicationViews.jsx
 import { Route, Routes, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { WriterProfile } from "./WriterProfile/WP_Profile.jsx";
 import { CreateNewArticle } from "./Create/NewArticle.jsx";
 import { WriterProfileMyArticles } from "./WriterProfile/WP_MyArticles.jsx";
@@ -19,6 +18,8 @@ import { ViewArticle } from "./Blog/viewArticle.jsx";
 
 
 export const ApplicationViews = ({currentUser}) => {
+
+  console.log('Rendering ApplicationViews with currentUser:', currentUser);
   return (
     <>
       <Routes>

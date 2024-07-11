@@ -38,5 +38,3 @@ export const BShomePage = ({currentUser}) => {
     );
 }
 
-
-
