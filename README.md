@@ -58,14 +58,15 @@ Any feedback is greatly appreciated. The planning, design and implementation was
 ## Currently revamping this project to add / update the following:
 #### Currently Working On 
 - [ ] Replace JSON DB with Python & Django backend W/ Sqlite3 DB 
-
-#### Updates
 - [ ] Fix known bug with `MyProfile` - Will be fixed with TSQ ↴
 - [ ] Use TanStack Query for state management
+#### Updates
 - [ ] Refresh site design 
 #### Additions 
+- [ ] Authorization Views for Readers / Writers
+- [ ] Create Settings for Readers / Writers 
 - [ ] Sign up for Email list 
-- [ ] All Writers View
+- [ ] All Writers View - Search / Filter Functionallity 
 - [ ] Add likes / favorites to articles 
 - [ ] Notifications for writers when readers like / comment their post
 - [ ] Analytics for writer Profile / Article Performance 
