@@ -83,6 +83,7 @@ Any feedback is greatly appreciated. The planning, design and implementation was
 
 #### Known Bug - My Profile 
 ```
+- [X] This has been resolved in the latest version of the application by using Tanstack Query for state management  
 To replicate the error do the following:
 
 1. Go to the home screen then click the hamburger menu
